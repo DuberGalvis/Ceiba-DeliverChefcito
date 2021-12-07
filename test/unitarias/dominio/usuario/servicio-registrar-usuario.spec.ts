@@ -27,7 +27,7 @@ describe('ServicioRegistrarUsuario', () => {
     ).rejects.toThrow('El nombre de usuario juan ya existe');
   });
 
-  it('si el nombre no existe guarda el usuario el repositorio', async () => {
+  it('si el nombre no existe guarda el usuario al repositorio', async () => {
     const usuario = new Usuario('juan', '1234', new Date().toISOString());
     repositorioUsuarioStub.existeNombreUsuario.returns(Promise.resolve(false));
 

@@ -1,0 +1,38 @@
+import { ApiProperty } from "@nestjs/swagger";
+import { IsDateString, IsNumber, IsObject, IsString } from "class-validator";
+
+import { ESTADO } from "src/dominio/pedido/modelo/pedido";
+import { Producto } from "src/dominio/producto/modelo/producto";
+import { Reunion } from "src/dominio/reunion/modelo/reunion";
+import { Usuario } from "src/dominio/usuario/modelo/usuario";
+
+
+export class ComandoRegistrarPedido {
+    @IsObject()
+    @ApiProperty({ type: Usuario })
+    public usuario: Usuario;
+
+    @IsObject()
+    @ApiProperty({ type: Producto})
+    public producto: Producto;
+
+    @IsObject()
+    @ApiProperty({ type: Reunion})
+    public reunion: Reunion;
+    
+    @IsDateString()
+    @ApiProperty({type: Date})
+    public fechaRealizacion: string;
+
+    @IsString()
+    @ApiProperty({ enum: ['ESTADO_ACTIVO', 'ESTADO_CANCELADO', 'ESTADO_FINALIZADO']})
+    public estado: ESTADO;
+
+    @IsString()
+    @ApiProperty({ type: String})
+    public direccion: string;
+
+    @IsNumber()
+    @ApiProperty({type: Number})
+    public valorTotal: number;
+}

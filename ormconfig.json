@@ -1,0 +1,14 @@
+{
+    "type": "postgres",
+    "host": "localhost",
+    "port": "5432",
+    "username": "postgres",
+    "password": "Asdf1234",
+    "database": "BDDELIVERCHEFCITO",
+    "entities": ["dist/**/*.entidad{.ts,.js}"],
+    "migrationsTableName": "migration_history",
+    "migrations": ["dist/src/infraestructura/migraciones/*.js"],
+    "cli": {
+      "migrationsDir": "dist/src/infraestructura/migraciones"
+    }
+}

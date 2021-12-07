@@ -6,11 +6,11 @@ export class ComandoRegistrarProducto {
   @ApiProperty({ example: 'Tacos Mexicanos'})
   public nombre: string;
 
-  @IsString()
+  @IsNumber()
   @ApiProperty({ type: Number })
   public precio: number;
 
-  @IsNumber()
+  @IsString()
   @ApiProperty({ maxLength: 100, example: 'contiene chile habanero...' })
   public detalle: string;
 }
