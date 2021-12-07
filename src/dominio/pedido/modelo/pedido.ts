@@ -14,13 +14,18 @@ export class Pedido {
   readonly #reunion: Reunion;
   readonly #fechaCreacion: Date;
   readonly #estado: ESTADO;
+  readonly #direccion: string;
+  readonly #valorTotal: number;
 
-  constructor(usuario: Usuario, producto: Producto, reunion: Reunion, fechaCreacion: Date, estado: ESTADO) {
+
+  constructor(usuario: Usuario, producto: Producto, reunion: Reunion, fechaCreacion: Date, estado: ESTADO, direccion: string, valorTotal: number) {
     this.#usuario = usuario;
     this.#producto = producto;
     this.#reunion = reunion;
     this.#fechaCreacion = fechaCreacion;
     this.#estado = estado;
+    this.#direccion = direccion;
+    this.#valorTotal = valorTotal;
   }
 
   get usuario(): Usuario {
@@ -41,5 +46,13 @@ export class Pedido {
 
   get estado(): ESTADO {
     return this.#estado;
+  }
+
+  get direccion(): string{
+    return this.#direccion;
+  }
+
+  get valorTotal(): number{
+    return this.#valorTotal;
   }
 }
