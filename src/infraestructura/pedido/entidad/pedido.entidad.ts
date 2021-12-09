@@ -10,16 +10,16 @@ export class PedidoEntidad {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @ManyToOne( () => UsuarioEntidad )
-    @JoinColumn()
-    usuarioEntidad: UsuarioEntidad;
+    @ManyToOne( type => UsuarioEntidad, {cascade: true, nullable: false, eager: true}  )
+    @JoinColumn({ name: 'usuario_id' })
+    usuario: UsuarioEntidad;
 
-    @ManyToOne( () => ProductoEntidad )
-    @JoinColumn()
+    @ManyToOne( type => ProductoEntidad, {cascade: true, nullable: false, eager: true}  )
+    @JoinColumn({ name: 'producto_id' })
     producto: ProductoEntidad;
 
-    @ManyToOne( () => ReunionEntidad )
-    @JoinColumn()
+    @ManyToOne( type => ReunionEntidad, {cascade: true, nullable: false, eager: true} )
+    @JoinColumn({ name: 'reunion_id' })
     reunion: ReunionEntidad;
 
     @Column()

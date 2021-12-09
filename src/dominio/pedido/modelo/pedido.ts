@@ -9,7 +9,7 @@ export enum ESTADO {
     ESTADO_FINALIZADO = 'ESTADO_FINALIZADO',
 }
 
-const LUNES = 1;
+const LUNES = 0;
 export class Pedido {
   readonly #usuario: Usuario;
   readonly #producto: Producto;
@@ -32,9 +32,8 @@ export class Pedido {
   }
 
   private validarLunesNoFestivo(fechaRealizacion: string) {
-    let esFestivo: boolean = false;
     let dia = new Date(fechaRealizacion).getDay();
-    if (dia === LUNES && !esFestivo) {
+    if (dia === LUNES) {
       throw new ErrorDeNegocio(
         'No se puede agendar pedido para este día',
       );
@@ -53,7 +52,7 @@ export class Pedido {
     return this.#reunion;
   }
 
-  get fechaCreacion(): Date {
+  get fechaRealizacion(): Date {
     return this.#fechaRealizacion;
   }
 

@@ -1,4 +1,4 @@
-import { ErrorValorRequerido } from 'src/dominio/errores/error-valor-requerido';
+import { ErrorDeNegocio } from 'src/dominio/errores/error-de-negocio';
 
 const TIPO: string[] = ['TIPO_PEQUENA', 'TIPO_MEDIANA', 'TIPO_GRANDE'];
 
@@ -14,7 +14,7 @@ export class Reunion {
 
   private validarTipoReunion(tipo: string) {
     if (!TIPO.includes(tipo)) {
-      throw new ErrorValorRequerido(
+      throw new ErrorDeNegocio(
         `El tipo de reunion debe ser: ${TIPO.toString()}.`,
       );
     }
