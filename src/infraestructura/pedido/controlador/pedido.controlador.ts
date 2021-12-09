@@ -1,7 +1,8 @@
-import { Body, Controller, Post, UsePipes, ValidationPipe } from "@nestjs/common";
+import { Body, Controller, Get, Post, UsePipes, ValidationPipe } from "@nestjs/common";
 import { ComandoRegistrarPedido } from "src/aplicacion/pedido/comando/registrar-pedido.comando";
 
 import { ManejadorRegistrarPedido } from "src/aplicacion/pedido/comando/registrar-pedido.manejador";
+import { PedidoDto } from "src/aplicacion/pedido/consulta/dto/pedido.dto";
 import { ManejadorListarPedido } from "src/aplicacion/pedido/consulta/listar-pedido.manejador";
 
 
@@ -16,5 +17,10 @@ export class PedidoControlador {
     @UsePipes(new ValidationPipe({ transform: true }))
     async crear(@Body() comandoRegistrarPedido: ComandoRegistrarPedido) {
         await this._manejadorRegistrarPedido.ejecutar(comandoRegistrarPedido)
+    }
+
+    @Get()
+    async listarPedidos(): Promise<PedidoDto[]>{
+        return this._manejadorListarPedido.ejecutar();
     }
 }

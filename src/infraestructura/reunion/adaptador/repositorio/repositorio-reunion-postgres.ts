@@ -13,6 +13,10 @@ export class RepositorioReunionPostgres implements RepositorioReunion {
         private readonly repositorio: Repository<ReunionEntidad>,
     ) {}
 
+    async existeTipoReunion(tipo: string): Promise<boolean> {
+        return (await this.repositorio.count({ tipo })) > 0;
+    }
+
     async guardar(reunion: Reunion) {
         const entidad = new ReunionEntidad();
         entidad.tipo = reunion.tipo;
