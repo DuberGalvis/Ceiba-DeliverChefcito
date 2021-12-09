@@ -5,10 +5,11 @@ import { servicioRegistrarUsuarioProveedor } from './servicio/servicio-registrar
 import { repositorioUsuarioProvider } from './repositorio/repositorio-usuario.proveedor';
 import { daoUsuarioProvider } from './dao/dao-usuario.proveedor';
 import { ManejadorRegistrarUsuario } from 'src/aplicacion/usuario/comando/registar-usuario.manejador';
-import { ManejadorListarUsuario } from 'src/aplicacion/usuario/consulta/listar-usuarios.manejador';
 import { DaoUsuario } from 'src/dominio/usuario/puerto/dao/dao-usuario';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsuarioEntidad } from '../entidad/usuario.entidad';
+import { ManejadorConsultarUsuario } from 'src/aplicacion/usuario/consulta/consultar-usuario.manejador';
+import { ManejadorCambiarUsuario } from 'src/aplicacion/usuario/cambio/cambiar-usuario.manejador';
 
 @Module({
   imports: [TypeOrmModule.forFeature([UsuarioEntidad])],
@@ -17,12 +18,14 @@ import { UsuarioEntidad } from '../entidad/usuario.entidad';
     repositorioUsuarioProvider,
     daoUsuarioProvider,
     ManejadorRegistrarUsuario,
-    ManejadorListarUsuario,
+    ManejadorConsultarUsuario,
+    ManejadorCambiarUsuario,
   ],
   exports: [
     ServicioRegistrarUsuario,
     ManejadorRegistrarUsuario,
-    ManejadorListarUsuario,
+    ManejadorConsultarUsuario,
+    ManejadorCambiarUsuario,
     RepositorioUsuario,
     DaoUsuario,
   ],

@@ -3,5 +3,5 @@ import { DaoPedidoPostgres } from "../../adaptador/dao/dao-pedido.postgres"
 
 export const daoPedidoProvider = {
     provide: DaoPedido,
-    userClass: DaoPedidoPostgres,
+    useClass: DaoPedidoPostgres,
 };

@@ -1,14 +1,18 @@
-import { Body, Controller, Get, Post, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, Patch, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { ComandoRegistrarUsuario } from 'src/aplicacion/usuario/comando/registrar-usuario.comando';
 import { ManejadorRegistrarUsuario } from 'src/aplicacion/usuario/comando/registar-usuario.manejador';
-import { ManejadorListarUsuario } from 'src/aplicacion/usuario/consulta/listar-usuarios.manejador';
 import { UsuarioDto } from 'src/aplicacion/usuario/consulta/dto/usuario.dto';
+import { ManejadorConsultarUsuario } from 'src/aplicacion/usuario/consulta/consultar-usuario.manejador';
+import { ComandoConsultarUsuario } from 'src/aplicacion/usuario/comando/consultar-usuario.comando';
+import { ComandoCambiarUsuario } from 'src/aplicacion/usuario/comando/cambiar-usuario.comando';
+import { ManejadorCambiarUsuario } from 'src/aplicacion/usuario/cambio/cambiar-usuario.manejador';
 
 @Controller('usuarios')
 export class UsuarioControlador {
   constructor(
     private readonly _manejadorRegistrarUsuario: ManejadorRegistrarUsuario,
-    private readonly _manejadorListarUsuario: ManejadorListarUsuario,
+    private readonly _manejadorConsultarUsuario: ManejadorConsultarUsuario,
+    private readonly _manejadorCambiarUsuario: ManejadorCambiarUsuario,
   ) {}
 
   @Post()
@@ -18,7 +22,13 @@ export class UsuarioControlador {
   }
 
   @Get()
-  async listar(): Promise<UsuarioDto[]> {
-    return this._manejadorListarUsuario.ejecutar();
+  async consultarUsuario(@Body() comandoConsultarUsuario: ComandoConsultarUsuario): Promise<UsuarioDto>{
+    return this._manejadorConsultarUsuario.ejecutar(comandoConsultarUsuario);
+  }
+
+  @Patch()
+  @HttpCode(204)
+  async cambiarClave(@Body() comandoCambiarUsuario: ComandoCambiarUsuario) {
+    return this._manejadorCambiarUsuario.ejecutar(comandoCambiarUsuario);
   }
 }
