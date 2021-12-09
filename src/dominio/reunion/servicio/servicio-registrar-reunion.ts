@@ -8,6 +8,11 @@ export class ServicioRegistrarReunion {
   }
 
   async ejecutar(reunion: Reunion) {
+    if (await this._repositorioReunion.existeTipoReunion(reunion.tipo)) {
+      throw new ErrorDeNegocio(
+        `El tipo de reunion ${reunion.tipo} ya existe`,
+      );
+    }
     await this._repositorioReunion.guardar(reunion);
   }
 }
