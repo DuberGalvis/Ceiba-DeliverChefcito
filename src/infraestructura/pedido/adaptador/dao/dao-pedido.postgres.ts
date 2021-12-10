@@ -28,17 +28,6 @@ export class DaoPedidoPostgres implements DaoPedido {
     }
 
     async cambiarPedido({ usuario, producto, reunion, fechaRealizacion, direccion, valorTotal }) {
-      // console.log(usuario)
-      // console.log(valorTotal)
-      // await this.entityManager.createQueryBuilder()
-      // .update(PedidoEntidad)
-      // .set({
-      //   producto: producto, reunion: reunion,
-      //   fechaRealizacion: fechaRealizacion,
-      //   direccion: direccion, valorTotal: valorTotal
-      // })
-      // .where('usuario_id = (SELECT id FROM USUARIO WHERE nombre = :nombre)', { nombre: usuario.nombre })
-      // .execute();
 
       const entidad = new PedidoEntidad();
         entidad.usuario = await this.entityManager.createQueryBuilder()

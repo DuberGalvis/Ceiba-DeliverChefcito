@@ -77,6 +77,16 @@ describe('Pruebas al controlador de usuarios', () => {
       .expect(usuario);
   });
 
+  it('debería cambiar la clave del usuario registrado', () => {
+
+    const usuario: any = [{ nombre: 'Lorem ipsum', claveActual: '1234', claveNueva: '4321' }];
+    daoUsuario.cambiar.returns(Promise.resolve(usuario));
+
+    return request(app.getHttpServer())
+      .patch('/usuarios')
+      .expect(HttpStatus.NO_CONTENT);
+  });
+
   it('debería fallar al registar un usuario clave muy corta', async () => {
     const usuario: ComandoRegistrarUsuario = {
       nombre: 'Lorem ipsum',
@@ -106,5 +116,18 @@ describe('Pruebas al controlador de usuarios', () => {
       .expect(HttpStatus.BAD_REQUEST);
     expect(response.body.message).toBe(mensaje);
     expect(response.body.statusCode).toBe(HttpStatus.BAD_REQUEST);
+  });
+
+  it('debería crear el registro del usuario', async () => {
+    const usuario: ComandoRegistrarUsuario = {
+      nombre: 'Lorem ipsum',
+      fechaCreacion: (new Date()).toISOString(),
+      clave: '1234',
+    };
+    repositorioUsuario.existeNombreUsuario.returns(Promise.resolve(false));
+
+    return request(app.getHttpServer())
+      .post('/usuarios').send(usuario)
+      .expect(HttpStatus.CREATED);
   });
 });
