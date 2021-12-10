@@ -25,7 +25,8 @@ describe('ServicioRegistrarPedido', () => {
             new Reunion('TIPO_GRANDE', 50000), 
             '2021-12-05',
             'Carrera 80 # 70',
-            250000
+            250000,
+            8
         );
 
         await servicioRegistrarPedido.ejecutar(pedido);

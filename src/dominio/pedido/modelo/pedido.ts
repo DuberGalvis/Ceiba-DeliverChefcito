@@ -8,6 +8,7 @@ const ESTADO_ACTIVO = 'ESTADO_ACTIVO';
 const ESTADO_CANCELADO = 'ESTADO_CANCELADO';
 const ESTADO_FINALIZADO = 'ESTADO_FINALIZADO';
 const LUNES = 0;
+const HORARIO_MAXIMO = 8;
 export class Pedido {
   readonly #usuario: Usuario;
   readonly #producto: Producto;
@@ -16,10 +17,12 @@ export class Pedido {
   readonly #estado: string;
   readonly #direccion: string;
   readonly #valorTotal: number;
+  readonly #horasDeServicio: number;
 
 
-  constructor(usuario: Usuario, producto: Producto, reunion: Reunion, fechaRealizacion: string, direccion: string, valorTotal: number) {
+  constructor(usuario: Usuario, producto: Producto, reunion: Reunion, fechaRealizacion: string, direccion: string, valorTotal: number, horasDeServicio: number) {
     this.validarLunesNoFestivo(fechaRealizacion);
+    this.validarHoraDeServicio(horasDeServicio);
     this.#usuario = usuario;
     this.#producto = producto;
     this.#reunion = reunion;
@@ -27,6 +30,7 @@ export class Pedido {
     this.#estado = ESTADO_ACTIVO;
     this.#direccion = direccion;
     this.#valorTotal = valorTotal;
+    this.#horasDeServicio = horasDeServicio;
   }
 
   private validarLunesNoFestivo(fechaRealizacion: string) {
@@ -34,6 +38,14 @@ export class Pedido {
     if (dia === LUNES) {
       throw new ErrorDeNegocio(
         'No se puede agendar pedido para este día',
+      );
+    }
+  }
+
+  private validarHoraDeServicio(horasDeServicio: number) {
+    if (horasDeServicio > HORARIO_MAXIMO) {
+      throw new ErrorDeNegocio(
+        `No se puede sobrepasar las ${HORARIO_MAXIMO} horas de servicio`,
       );
     }
   }
@@ -64,5 +76,9 @@ export class Pedido {
 
   get valorTotal(): number{
     return this.#valorTotal;
+  }
+
+  get horasDeServicio(): number{
+    return this.#horasDeServicio;
   }
 }

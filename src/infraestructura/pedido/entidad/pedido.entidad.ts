@@ -32,4 +32,7 @@ export class PedidoEntidad {
 
     @Column()
     valorTotal: number;
+
+    @Column()
+    horasDeServicio: number;
 }

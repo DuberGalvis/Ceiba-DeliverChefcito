@@ -17,9 +17,22 @@ describe('Pedido', () => {
       new _Reunion('TIPO_GRANDE', 50000), 
       '2021-12-06',
       'Carrera 80 # 70',
-      250000))
+      250000,
+      5))
       .rejects
       .toStrictEqual(new ErrorDeNegocio('No se puede agendar pedido para este día'));
+  });
+
+  it('Pedido con horario que pasa el maximo de horas debería retornar error', () => {
+    return expect(async () => new _Pedido( new _Usuario('juan', '1234', new Date().toISOString()),
+      new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
+      new _Reunion('TIPO_GRANDE', 50000), 
+      '2021-12-05',
+      'Carrera 80 # 70',
+      250000,
+      9))
+      .rejects
+      .toStrictEqual(new ErrorDeNegocio('No se puede sobrepasar las 8 horas de servicio'));
   });
 
   it('producto con dia diferente a lunes debería crear bien', () => {

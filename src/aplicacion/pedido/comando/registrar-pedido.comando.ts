@@ -30,4 +30,8 @@ export class ComandoRegistrarPedido {
     @IsNumber()
     @ApiProperty({type: Number})
     public valorTotal: number;
+
+    @IsNumber()
+    @ApiProperty({type: Number})
+    public horasDeServicio: number;
 }

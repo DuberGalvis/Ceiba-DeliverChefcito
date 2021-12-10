@@ -58,6 +58,5 @@ export class DaoPedidoPostgres implements DaoPedido {
         })
         .where('usuario_id = :id', { id: entidad.usuario.id })
         .execute()
-        console.log(entidad.usuario.id)  
     }
 }

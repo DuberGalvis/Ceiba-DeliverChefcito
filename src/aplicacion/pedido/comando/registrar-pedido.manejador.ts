@@ -17,6 +17,7 @@ export class ManejadorRegistrarPedido {
                 comandoRegistrarPedido.fechaRealizacion,
                 comandoRegistrarPedido.direccion,
                 comandoRegistrarPedido.valorTotal,
+                comandoRegistrarPedido.horasDeServicio,
             ),
         );
     }

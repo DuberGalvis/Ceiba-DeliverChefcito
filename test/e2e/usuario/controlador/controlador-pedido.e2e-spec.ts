@@ -85,7 +85,8 @@ describe('Pruebas al controlador de pedidos', () => {
       reunion: new Reunion('TIPO_GRANDE', 50000),
       fechaRealizacion: '2021-12-07T21:56:24.194Z',
       direccion: 'Carrera 80 # 70',
-      valorTotal: 90000,  
+      valorTotal: 90000,
+      horasDeServicio: 7,  
     };
 
     return request(app.getHttpServer())
