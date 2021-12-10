@@ -15,7 +15,6 @@ export class ManejadorRegistrarPedido {
                 comandoRegistrarPedido.producto,
                 comandoRegistrarPedido.reunion,
                 comandoRegistrarPedido.fechaRealizacion,
-                comandoRegistrarPedido.estado,
                 comandoRegistrarPedido.direccion,
                 comandoRegistrarPedido.valorTotal,
             ),

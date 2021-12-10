@@ -1,7 +1,10 @@
 import { Injectable } from "@nestjs/common";
-import { InjectRepository } from "@nestjs/typeorm";
+import { InjectEntityManager, InjectRepository } from "@nestjs/typeorm";
 import { Pedido } from "src/dominio/pedido/modelo/pedido";
-import { Repository } from "typeorm";
+import { ProductoEntidad } from "src/infraestructura/producto/entidad/producto.entidad";
+import { ReunionEntidad } from "src/infraestructura/reunion/entidad/reunion.entidad";
+import { UsuarioEntidad } from "src/infraestructura/usuario/entidad/usuario.entidad";
+import { EntityManager, Repository } from "typeorm";
 
 import { PedidoEntidad } from "../../entidad/pedido.entidad";
 
@@ -10,16 +13,33 @@ export class RepositorioPedidoPostgres {
     constructor(
         @InjectRepository(PedidoEntidad)
         private readonly repositorio: Repository<PedidoEntidad>,
+        @InjectEntityManager()
+        private readonly entityManager: EntityManager,
     ){}
 
     async guardar(pedido: Pedido) {
+                
         const entidad = new PedidoEntidad();
-        // entidad.usuario = pedido.usuario;
-        // entidad.producto = pedido.producto;
-        // entidad.reunion = pedido.reunion;
+        entidad.usuario = await this.entityManager.createQueryBuilder()
+        .select('usuario')
+        .from(UsuarioEntidad, 'usuario')
+        .where('usuario.nombre = :nombre', { nombre: pedido.usuario.nombre })
+        .getOne();
+        entidad.producto = await this.entityManager.createQueryBuilder()
+        .select('producto')
+        .from(ProductoEntidad, 'producto')
+        .where('producto.nombre = :nombre', { nombre: pedido.producto.nombre })
+        .getOne();
+        entidad.reunion = await this.entityManager.createQueryBuilder()
+        .select('reunion')
+        .from(ReunionEntidad, 'reunion')
+        .where('reunion.tipo = :tipo', { tipo: pedido.reunion.tipo })
+        .getOne();
+        console.log(pedido.estado)
         entidad.fechaRealizacion = pedido.fechaRealizacion;
+        entidad.estado = pedido.estado
         entidad.direccion = pedido.direccion;
         entidad.valorTotal = pedido.valorTotal;
-        await this.repositorio.save(entidad);
+        await this.repositorio.save(entidad);            
     }
 }

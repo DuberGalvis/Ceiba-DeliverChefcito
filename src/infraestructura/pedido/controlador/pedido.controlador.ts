@@ -1,6 +1,8 @@
-import { Body, Controller, Get, Post, UsePipes, ValidationPipe } from "@nestjs/common";
-import { ComandoRegistrarPedido } from "src/aplicacion/pedido/comando/registrar-pedido.comando";
+import { Body, Controller, Get, Patch, Post, UsePipes, ValidationPipe } from "@nestjs/common";
 
+import { ComandoCambiarPedido } from "src/aplicacion/pedido/cambio/cambiar-pedido.comando";
+import { ManejadorCambiarPedido } from "src/aplicacion/pedido/cambio/cambiar-pedido.manejador";
+import { ComandoRegistrarPedido } from "src/aplicacion/pedido/comando/registrar-pedido.comando";
 import { ManejadorRegistrarPedido } from "src/aplicacion/pedido/comando/registrar-pedido.manejador";
 import { PedidoDto } from "src/aplicacion/pedido/consulta/dto/pedido.dto";
 import { ManejadorListarPedido } from "src/aplicacion/pedido/consulta/listar-pedido.manejador";
@@ -11,6 +13,7 @@ export class PedidoControlador {
     constructor(
         private readonly _manejadorRegistrarPedido: ManejadorRegistrarPedido,
         private readonly _manejadorListarPedido: ManejadorListarPedido,
+        private readonly _manejadorCambiarPedido: ManejadorCambiarPedido,
     ){}
 
     @Post()
@@ -20,7 +23,12 @@ export class PedidoControlador {
     }
 
     @Get()
-    async listarPedidos(): Promise<PedidoDto[]>{
-        return this._manejadorListarPedido.ejecutar();
+    async listarPedidos(@Body('nombre') nombre: string): Promise<PedidoDto[]>{
+        return this._manejadorListarPedido.ejecutar(nombre);
+    }
+
+    @Patch()
+    async modificarPedido(@Body() comandoCambiarPedido: ComandoCambiarPedido) {
+        return this._manejadorCambiarPedido.ejecutar(comandoCambiarPedido)
     }
 }

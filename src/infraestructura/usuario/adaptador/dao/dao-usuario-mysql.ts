@@ -36,4 +36,10 @@ export class DaoUsuarioMysql implements DaoUsuario {
       throw new NotFoundException("Error de Credenciales, verifique su clave actual")
     }
   }
+
+  async listar(): Promise<UsuarioDto[]> {
+    return this.entityManager.query(
+      'SELECT u.nombre, u.fechaCreacion FROM USUARIO u',
+    );
+  }
 }

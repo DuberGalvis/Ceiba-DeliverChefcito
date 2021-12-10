@@ -3,7 +3,6 @@ import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "t
 import { UsuarioEntidad } from "src/infraestructura/usuario/entidad/usuario.entidad";
 import { ProductoEntidad } from "src/infraestructura/producto/entidad/producto.entidad";
 import { ReunionEntidad } from "src/infraestructura/reunion/entidad/reunion.entidad";
-import { ESTADO } from "src/dominio/pedido/modelo/pedido";
 
 @Entity({ name: 'pedido' })
 export class PedidoEntidad {
@@ -26,7 +25,7 @@ export class PedidoEntidad {
     fechaRealizacion: Date;
 
     @Column()
-    estado: ESTADO;
+    estado: string;
 
     @Column()
     direccion: string;

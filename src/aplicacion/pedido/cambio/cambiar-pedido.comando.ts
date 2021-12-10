@@ -6,7 +6,7 @@ import { Reunion } from "src/dominio/reunion/modelo/reunion";
 import { Usuario } from "src/dominio/usuario/modelo/usuario";
 
 
-export class ComandoRegistrarPedido {
+export class ComandoCambiarPedido {
     @IsObject()
     @ApiProperty({ type: Usuario })
     public usuario: Usuario;

@@ -14,7 +14,7 @@ export class PedidoDto {
   @ApiProperty({ type: Date })
   fechaRealizacion: string;
 
-  @ApiProperty({ })
+  @ApiProperty({ type: String })
   estado: string;
 
   @ApiProperty({ type: String })

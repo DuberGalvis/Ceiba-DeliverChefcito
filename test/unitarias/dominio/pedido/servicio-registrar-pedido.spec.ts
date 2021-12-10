@@ -1,5 +1,5 @@
 import { SinonStubbedInstance } from "sinon";
-import { ESTADO, Pedido } from "src/dominio/pedido/modelo/pedido";
+import { Pedido } from "src/dominio/pedido/modelo/pedido";
 import { RepositorioPedido } from "src/dominio/pedido/puerto/repositorio/repositorio-pedido";
 import { ServicioRegistrarPedido } from "src/dominio/pedido/servicio/servicio-registrar-pedido"
 import { Producto } from "src/dominio/producto/modelo/producto";
@@ -19,13 +19,14 @@ describe('ServicioRegistrarPedido', () => {
     });
 
     it('si el pedido es valido guarda al repositorio', async () => {
-        const pedido = new Pedido(new Usuario('juan', '1234', new Date().toISOString()),
-        new Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
-        new Reunion('TIPO_GRANDE', 50000), 
-        '2021-12-05',
-        ESTADO.ESTADO_ACTIVO,
-        'Carrera 80 # 70',
-        250000);
+        const pedido = new Pedido(
+            new Usuario('juan', '1234', new Date().toISOString()),
+            new Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
+            new Reunion('TIPO_GRANDE', 50000), 
+            '2021-12-05',
+            'Carrera 80 # 70',
+            250000
+        );
 
         await servicioRegistrarPedido.ejecutar(pedido);
 

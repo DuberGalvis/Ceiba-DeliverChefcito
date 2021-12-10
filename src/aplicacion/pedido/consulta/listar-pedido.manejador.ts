@@ -7,7 +7,7 @@ import { PedidoDto } from 'src/aplicacion/pedido/consulta/dto/pedido.dto';
 export class ManejadorListarPedido {
   constructor(private _daoPedido: DaoPedido) {}
 
-  async ejecutar(): Promise<PedidoDto[]> {
-    return this._daoPedido.listar();
+  async ejecutar(nombre: string): Promise<PedidoDto[]> {
+    return this._daoPedido.listar(nombre);
   }
 }

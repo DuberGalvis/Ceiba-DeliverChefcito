@@ -13,6 +13,8 @@ import { ComandoRegistrarUsuario } from 'src/aplicacion/usuario/comando/registra
 import { AppLogger } from 'src/infraestructura/configuracion/ceiba-logger.service';
 import { createSandbox, SinonStubbedInstance } from 'sinon';
 import { createStubObj } from '../../../util/create-object.stub';
+import { ManejadorConsultarUsuario } from 'src/aplicacion/usuario/consulta/consultar-usuario.manejador';
+import { ManejadorCambiarUsuario } from 'src/aplicacion/usuario/cambio/cambiar-usuario.manejador';
 
 /**
  * Un sandbox es util cuando el módulo de nest se configura una sola vez durante el ciclo completo de pruebas
@@ -30,7 +32,7 @@ describe('Pruebas al controlador de usuarios', () => {
    **/
   beforeAll(async () => {
     repositorioUsuario = createStubObj<RepositorioUsuario>(['existeNombreUsuario', 'guardar'], sinonSandbox);
-    daoUsuario = createStubObj<DaoUsuario>(['listar'], sinonSandbox);
+    daoUsuario = createStubObj<DaoUsuario>(['listar', 'consultar', 'cambiar'], sinonSandbox);
     const moduleRef = await Test.createTestingModule({
       controllers: [UsuarioControlador],
       providers: [
@@ -44,6 +46,8 @@ describe('Pruebas al controlador de usuarios', () => {
         { provide: DaoUsuario, useValue: daoUsuario },
         ManejadorRegistrarUsuario,
         ManejadorListarUsuario,
+        ManejadorConsultarUsuario,
+        ManejadorCambiarUsuario,
       ],
     }).compile();
 
@@ -62,15 +66,15 @@ describe('Pruebas al controlador de usuarios', () => {
     await app.close();
   });
 
-  it('debería listar los usuarios registrados', () => {
+  it('debería consultar el usuario registrado', () => {
 
-    const usuarios: any[] = [{ nombre: 'Lorem ipsum', fechaCreacion: (new Date().toISOString()) }];
-    daoUsuario.listar.returns(Promise.resolve(usuarios));
+    const usuario: any = [{ nombre: 'Lorem ipsum', clave: '1234' }];
+    daoUsuario.consultar.returns(Promise.resolve(usuario));
 
     return request(app.getHttpServer())
       .get('/usuarios')
       .expect(HttpStatus.OK)
-      .expect(usuarios);
+      .expect(usuario);
   });
 
   it('debería fallar al registar un usuario clave muy corta', async () => {

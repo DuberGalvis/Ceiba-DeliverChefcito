@@ -3,30 +3,28 @@ import { Producto } from 'src/dominio/producto/modelo/producto';
 import { Reunion } from 'src/dominio/reunion/modelo/reunion';
 import { Usuario } from 'src/dominio/usuario/modelo/usuario';
 
-export enum ESTADO {
-    ESTADO_ACTIVO = 'ESTADO_ACTIVO',
-    ESTADO_CANCELADO = 'ESTADO_CANCELADO',
-    ESTADO_FINALIZADO = 'ESTADO_FINALIZADO',
-}
 
+const ESTADO_ACTIVO = 'ESTADO_ACTIVO';
+const ESTADO_CANCELADO = 'ESTADO_CANCELADO';
+const ESTADO_FINALIZADO = 'ESTADO_FINALIZADO';
 const LUNES = 0;
 export class Pedido {
   readonly #usuario: Usuario;
   readonly #producto: Producto;
   readonly #reunion: Reunion;
   readonly #fechaRealizacion: Date;
-  readonly #estado: ESTADO;
+  readonly #estado: string;
   readonly #direccion: string;
   readonly #valorTotal: number;
 
 
-  constructor(usuario: Usuario, producto: Producto, reunion: Reunion, fechaRealizacion: string, estado: ESTADO, direccion: string, valorTotal: number) {
+  constructor(usuario: Usuario, producto: Producto, reunion: Reunion, fechaRealizacion: string, direccion: string, valorTotal: number) {
     this.validarLunesNoFestivo(fechaRealizacion);
     this.#usuario = usuario;
     this.#producto = producto;
     this.#reunion = reunion;
     this.#fechaRealizacion = new Date(fechaRealizacion);
-    this.#estado = estado;
+    this.#estado = ESTADO_ACTIVO;
     this.#direccion = direccion;
     this.#valorTotal = valorTotal;
   }
@@ -56,7 +54,7 @@ export class Pedido {
     return this.#fechaRealizacion;
   }
 
-  get estado(): ESTADO {
+  get estado(): string {
     return this.#estado;
   }
 
