@@ -1,4 +1,4 @@
-import { ErrorDeNegocio } from "../error-de-negocio";
+import { ErrorDeNegocio } from '../error-de-negocio';
 
 export class ErrorNoHayValortotal extends ErrorDeNegocio {
     constructor(mensaje: string){

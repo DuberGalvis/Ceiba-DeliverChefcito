@@ -1,39 +1,39 @@
 <testExecutions version="1">
+<file path="test\unitarias\dominio\reunion\reunion.spec.ts">
+<testCase name="Reunion reunion con tipo diferente deber&#xED;a retornar error" duration="6" />
+<testCase name="Reunion reunion sin precio deber&#xED;a retornar error" duration="1" />
+<testCase name="Reunion reunion con validaciones correctas deber&#xED;a crear bien" duration="1" />
+</file>
 <file path="test\unitarias\dominio\producto\producto.spec.ts">
 <testCase name="Producto producto con detalle mayor que 100 deber&#xED;a retornar error" duration="4" />
 <testCase name="Producto producto con nombre vacio deber&#xED;a retornar error" duration="1" />
 <testCase name="Producto producto con precio vacio deber&#xED;a retornar error" duration="1" />
 <testCase name="Producto producto con validaciones ok se deber&#xED;a crear" duration="1" />
 </file>
-<file path="test\unitarias\dominio\reunion\reunion.spec.ts">
-<testCase name="Reunion reunion con tipo diferente deber&#xED;a retornar error" duration="4" />
-<testCase name="Reunion reunion sin precio deber&#xED;a retornar error" duration="1" />
-<testCase name="Reunion reunion con validaciones correctas deber&#xED;a crear bien" duration="1" />
-</file>
 <file path="test\unitarias\dominio\pedido\pedido.spec.ts">
-<testCase name="Pedido Pedido con fecha de lunes deber&#xED;a retornar error" duration="6" />
-<testCase name="Pedido Pedido con horario que pasa el maximo de horas deber&#xED;a retornar error" duration="1" />
-<testCase name="Pedido Pedido sin usuario deberia retornar error" duration="1" />
+<testCase name="Pedido Pedido con fecha de lunes deber&#xED;a retornar error" duration="7" />
+<testCase name="Pedido Pedido con horario que pasa el maximo de horas deber&#xED;a retornar error" duration="0" />
+<testCase name="Pedido Pedido sin usuario deberia retornar error" duration="0" />
 <testCase name="Pedido Pedido sin producto deberia retornar error" duration="1" />
 <testCase name="Pedido Pedido sin reunion deberia retornar error" duration="1" />
 <testCase name="Pedido Pedido sin direccion deberia retornar error" duration="1" />
 <testCase name="Pedido Pedido sin valor total deberia retornar error" duration="1" />
-<testCase name="Pedido producto con todas las validaciones ok deber&#xED;a crear bien" duration="0" />
-</file>
-<file path="test\unitarias\dominio\producto\servicio-registrar-usuario.spec.ts">
-<testCase name="ServicioRegistrarProducto si el nombre del producto ya existe no se puede crear y deberia retonar error" duration="5" />
-<testCase name="ServicioRegistrarProducto si el nombre no existe guarda el producto al repositorio" duration="3" />
-</file>
-<file path="test\unitarias\dominio\reunion\servicio-registrar-reunion.spec.ts">
-<testCase name="ServicioRegistrarReunion si el tipo de reunion ya existe no se puede crear y deberia retonar error" duration="6" />
-<testCase name="ServicioRegistrarReunion si el tipo no existe guarda la reunion en el repositorio" duration="2" />
-</file>
-<file path="test\unitarias\dominio\pedido\servicio-registrar-pedido.spec.ts">
-<testCase name="ServicioRegistrarPedido si el pedido es valido guarda al repositorio" duration="4" />
+<testCase name="Pedido producto con todas las validaciones ok deber&#xED;a crear bien" duration="1" />
 </file>
 <file path="test\unitarias\dominio\usuario\servicio-registrar-usuario.spec.ts">
-<testCase name="ServicioRegistrarUsuario si el nombre de usuario ya existe no se puede crear y deberia retonar error" duration="5" />
-<testCase name="ServicioRegistrarUsuario si el nombre no existe guarda el usuario al repositorio" duration="1" />
+<testCase name="ServicioRegistrarUsuario si el nombre de usuario ya existe no se puede crear y deberia retonar error" duration="9" />
+<testCase name="ServicioRegistrarUsuario si el nombre no existe guarda el usuario al repositorio" duration="3" />
+</file>
+<file path="test\unitarias\dominio\reunion\servicio-registrar-reunion.spec.ts">
+<testCase name="ServicioRegistrarReunion si el tipo de reunion ya existe no se puede crear y deberia retonar error" duration="5" />
+<testCase name="ServicioRegistrarReunion si el tipo no existe guarda la reunion en el repositorio" duration="1" />
+</file>
+<file path="test\unitarias\dominio\pedido\servicio-registrar-pedido.spec.ts">
+<testCase name="ServicioRegistrarPedido si el pedido es valido guarda al repositorio" duration="5" />
+</file>
+<file path="test\unitarias\dominio\producto\servicio-registrar-usuario.spec.ts">
+<testCase name="ServicioRegistrarProducto si el nombre del producto ya existe no se puede crear y deberia retonar error" duration="8" />
+<testCase name="ServicioRegistrarProducto si el nombre no existe guarda el producto al repositorio" duration="3" />
 </file>
 <file path="test\unitarias\dominio\usuario\usuario.spec.ts">
 <testCase name="Usuario usuario con clave menor que 4 deber&#xED;a retornar error" duration="3" />
