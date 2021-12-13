@@ -1,7 +1,7 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable } from '@nestjs/common';
 
-import { DaoUsuario } from "src/dominio/usuario/puerto/dao/dao-usuario";
-import { UsuarioDto } from "./dto/usuario.dto";
+import { DaoUsuario } from 'src/dominio/usuario/puerto/dao/dao-usuario';
+import { UsuarioDto } from './dto/usuario.dto';
 
 @Injectable()
 export class ManejadorConsultarUsuario {

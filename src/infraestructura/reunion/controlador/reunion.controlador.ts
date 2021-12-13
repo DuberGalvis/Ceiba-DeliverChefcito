@@ -1,8 +1,8 @@
-import { Body, Controller, Get, Post, UsePipes, ValidationPipe } from "@nestjs/common";
-import { ComandoRegistrarReunion } from "src/aplicacion/reunion/comando/registrar-reunion.comando";
-import { ManejadorRegistrarReunion } from "src/aplicacion/reunion/comando/registrar-reunion.manejador";
-import { ManejadorConsultarReunion } from "src/aplicacion/reunion/consulta/consulta-reunion.manejador";
-import { ReunionDto } from "src/aplicacion/reunion/consulta/dto/reunion.dto";
+import { Body, Controller, Get, Post, UsePipes, ValidationPipe } from '@nestjs/common';
+import { ComandoRegistrarReunion } from 'src/aplicacion/reunion/comando/registrar-reunion.comando';
+import { ManejadorRegistrarReunion } from 'src/aplicacion/reunion/comando/registrar-reunion.manejador';
+import { ManejadorConsultarReunion } from 'src/aplicacion/reunion/consulta/consulta-reunion.manejador';
+import { ReunionDto } from 'src/aplicacion/reunion/consulta/dto/reunion.dto';
 
 @Controller('reuniones')
 export class ReunionControlador {

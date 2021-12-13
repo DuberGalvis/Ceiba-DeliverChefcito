@@ -1,5 +1,6 @@
 import { Reunion } from 'src/dominio/reunion/modelo/reunion';
-import { ErrorDeNegocio } from 'src/dominio/errores/error-de-negocio';
+import { ErrorValorRequerido } from 'src/dominio/errores/error-valor-requerido';
+import { ErrorTipoIncorrecto } from 'src/dominio/errores/reunion/error-tipo-incorrecto';
 
 describe('Reunion', () => {
 
@@ -8,10 +9,16 @@ describe('Reunion', () => {
   it('reunion con tipo diferente debería retornar error', () => {
     return expect(async () => new _Reunion('TIPO_MASGRANDE', 50000))
       .rejects
-      .toStrictEqual(new ErrorDeNegocio('El tipo de reunion debe ser: TIPO_PEQUENA,TIPO_MEDIANA,TIPO_GRANDE.'));
+      .toStrictEqual(new ErrorTipoIncorrecto('El tipo de reunion debe ser: TIPO_PEQUENA,TIPO_MEDIANA,TIPO_GRANDE.'));
   });
 
-  it('reunion con tipo correcto debería crear bien', () => {
+  it('reunion sin precio debería retornar error', () => {
+    return expect(async () => new _Reunion('TIPO_PEQUENA', undefined))
+      .rejects
+      .toStrictEqual(new ErrorValorRequerido('El precio esta vacio, es requerido'));
+  });
+
+  it('reunion con validaciones correctas debería crear bien', () => {
     const reunion = new _Reunion('TIPO_PEQUENA', 25000);
 
     expect(reunion.tipo).toEqual('TIPO_PEQUENA');

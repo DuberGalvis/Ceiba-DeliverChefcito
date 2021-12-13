@@ -1,11 +1,11 @@
-import { Body, Controller, Get, Patch, Post, UsePipes, ValidationPipe } from "@nestjs/common";
+import { Body, Controller, Get, Patch, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 
-import { ComandoCambiarPedido } from "src/aplicacion/pedido/cambio/cambiar-pedido.comando";
-import { ManejadorCambiarPedido } from "src/aplicacion/pedido/cambio/cambiar-pedido.manejador";
-import { ComandoRegistrarPedido } from "src/aplicacion/pedido/comando/registrar-pedido.comando";
-import { ManejadorRegistrarPedido } from "src/aplicacion/pedido/comando/registrar-pedido.manejador";
-import { PedidoDto } from "src/aplicacion/pedido/consulta/dto/pedido.dto";
-import { ManejadorListarPedido } from "src/aplicacion/pedido/consulta/listar-pedido.manejador";
+import { ComandoCambiarPedido } from 'src/aplicacion/pedido/cambio/cambiar-pedido.comando';
+import { ManejadorCambiarPedido } from 'src/aplicacion/pedido/cambio/cambiar-pedido.manejador';
+import { ComandoRegistrarPedido } from 'src/aplicacion/pedido/comando/registrar-pedido.comando';
+import { ManejadorRegistrarPedido } from 'src/aplicacion/pedido/comando/registrar-pedido.manejador';
+import { PedidoDto } from 'src/aplicacion/pedido/consulta/dto/pedido.dto';
+import { ManejadorListarPedido } from 'src/aplicacion/pedido/consulta/listar-pedido.manejador';
 
 
 @Controller('pedidos')

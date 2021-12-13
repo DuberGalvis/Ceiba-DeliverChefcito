@@ -1,6 +1,7 @@
 import { EntityManager } from 'typeorm';
 import { InjectEntityManager } from '@nestjs/typeorm';
 import { Injectable, NotFoundException } from '@nestjs/common';
+
 import { DaoUsuario } from 'src/dominio/usuario/puerto/dao/dao-usuario';
 import { UsuarioDto } from 'src/aplicacion/usuario/consulta/dto/usuario.dto';
 
@@ -19,7 +20,7 @@ export class DaoUsuarioMysql implements DaoUsuario {
     );
 
     if(respuesta.length === 0){
-      throw new NotFoundException("Error de Credenciales o Usuario no existe")
+      throw new NotFoundException('Error de Credenciales o Usuario no existe')
     }
     
     return respuesta[0];
@@ -33,7 +34,7 @@ export class DaoUsuarioMysql implements DaoUsuario {
     );
 
     if(!respuesta.includes(1)){
-      throw new NotFoundException("Error de Credenciales, verifique su clave actual")
+      throw new NotFoundException('Error de Credenciales, verifique su clave actual')
     }
   }
 

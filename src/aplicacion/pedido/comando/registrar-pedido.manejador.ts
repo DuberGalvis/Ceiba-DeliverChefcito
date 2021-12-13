@@ -1,7 +1,7 @@
-import { Injectable } from "@nestjs/common";
-import { Pedido } from "src/dominio/pedido/modelo/pedido";
-import { ServicioRegistrarPedido } from "src/dominio/pedido/servicio/servicio-registrar-pedido";
-import { ComandoRegistrarPedido } from "./registrar-pedido.comando";
+import { Injectable } from '@nestjs/common';
+import { Pedido } from 'src/dominio/pedido/modelo/pedido';
+import { ServicioRegistrarPedido } from 'src/dominio/pedido/servicio/servicio-registrar-pedido';
+import { ComandoRegistrarPedido } from './registrar-pedido.comando';
 
 
 @Injectable()

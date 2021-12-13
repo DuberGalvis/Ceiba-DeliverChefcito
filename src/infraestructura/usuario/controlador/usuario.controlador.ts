@@ -27,7 +27,6 @@ export class UsuarioControlador {
   }
 
   @Patch()
-  @HttpCode(204)
   async cambiarClave(@Body() comandoCambiarUsuario: ComandoCambiarUsuario) {
     return this._manejadorCambiarUsuario.ejecutar(comandoCambiarUsuario);
   }

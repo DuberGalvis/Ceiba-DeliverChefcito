@@ -27,7 +27,7 @@ describe('ServicioRegistrarProducto', () => {
     ).rejects.toThrow('El nombre del producto Alitas Picantes ya existe');
   });
 
-  it('si el nombre no existe guarda el producto el repositorio', async () => {
+  it('si el nombre no existe guarda el producto al repositorio', async () => {
     const producto = new Producto('Alitas Picantes', 40000, 'Bañadas en salsa tabasco con finas hiervas');
     repositorioProductoStub.existeNombreProducto.returns(Promise.resolve(false));
 

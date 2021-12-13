@@ -1,10 +1,10 @@
-import { Body, Controller, Get, Post, UsePipes, ValidationPipe } from "@nestjs/common";
+import { Body, Controller, Get, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 
-import { ComandoRegistrarProducto } from "src/aplicacion/producto/comando/registrar-producto.comando";
-import { ManejadorRegistrarProducto } from "src/aplicacion/producto/comando/registrar-producto.manejador";
-import { ManejadorConsultarProducto } from "src/aplicacion/producto/consulta/consultar-producto.manejador";
-import { ProductoDto } from "src/aplicacion/producto/consulta/dto/producto.dto";
-import { ManejadorListarProducto } from "src/aplicacion/producto/consulta/listar-producto.manejador";
+import { ComandoRegistrarProducto } from 'src/aplicacion/producto/comando/registrar-producto.comando';
+import { ManejadorRegistrarProducto } from 'src/aplicacion/producto/comando/registrar-producto.manejador';
+import { ManejadorConsultarProducto } from 'src/aplicacion/producto/consulta/consultar-producto.manejador';
+import { ProductoDto } from 'src/aplicacion/producto/consulta/dto/producto.dto';
+import { ManejadorListarProducto } from 'src/aplicacion/producto/consulta/listar-producto.manejador';
 
 @Controller('productos')
 export class ProductoControlador {

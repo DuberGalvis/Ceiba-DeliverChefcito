@@ -1,10 +1,10 @@
-import { Injectable } from "@nestjs/common";
-import { InjectRepository } from "@nestjs/typeorm";
-import { Repository } from "typeorm";
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
-import { RepositorioReunion } from "src/dominio/reunion/puerto/repositorio/repositorio-reunion";
-import { ReunionEntidad } from "../../entidad/reunion.entidad";
-import { Reunion } from "src/dominio/reunion/modelo/reunion";
+import { RepositorioReunion } from 'src/dominio/reunion/puerto/repositorio/repositorio-reunion';
+import { ReunionEntidad } from '../../entidad/reunion.entidad';
+import { Reunion } from 'src/dominio/reunion/modelo/reunion';
 
 @Injectable()
 export class RepositorioReunionPostgres implements RepositorioReunion {

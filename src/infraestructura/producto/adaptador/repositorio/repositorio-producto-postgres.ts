@@ -1,10 +1,10 @@
-import { Injectable } from "@nestjs/common";
-import { InjectRepository } from "@nestjs/typeorm";
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 
-import { Producto } from "src/dominio/producto/modelo/producto";
-import { RepositorioProducto } from "src/dominio/producto/puerto/repositorio/repositorio-producto";
-import { Repository } from "typeorm";
-import { ProductoEntidad } from "../../entidad/producto.entidad";
+import { Producto } from 'src/dominio/producto/modelo/producto';
+import { RepositorioProducto } from 'src/dominio/producto/puerto/repositorio/repositorio-producto';
+import { Repository } from 'typeorm';
+import { ProductoEntidad } from '../../entidad/producto.entidad';
 
 @Injectable()
 export class RepositorioProductoPostgres  implements RepositorioProducto {

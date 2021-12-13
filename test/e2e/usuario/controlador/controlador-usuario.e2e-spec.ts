@@ -84,7 +84,7 @@ describe('Pruebas al controlador de usuarios', () => {
 
     return request(app.getHttpServer())
       .patch('/usuarios')
-      .expect(HttpStatus.NO_CONTENT);
+      .expect(HttpStatus.OK);
   });
 
   it('debería fallar al registar un usuario clave muy corta', async () => {

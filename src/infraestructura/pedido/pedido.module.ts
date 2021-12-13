@@ -1,7 +1,7 @@
-import { Module } from "@nestjs/common";
+import { Module } from '@nestjs/common';
 
-import { PedidoControlador } from "./controlador/pedido.controlador";
-import { PedidoProveedorModule } from "./proveedor/pedido-proveedor.module";
+import { PedidoControlador } from './controlador/pedido.controlador';
+import { PedidoProveedorModule } from './proveedor/pedido-proveedor.module';
 
 @Module({
     imports: [

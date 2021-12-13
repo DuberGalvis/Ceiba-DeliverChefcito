@@ -1,8 +1,8 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
-import { UsuarioEntidad } from "src/infraestructura/usuario/entidad/usuario.entidad";
-import { ProductoEntidad } from "src/infraestructura/producto/entidad/producto.entidad";
-import { ReunionEntidad } from "src/infraestructura/reunion/entidad/reunion.entidad";
+import { UsuarioEntidad } from 'src/infraestructura/usuario/entidad/usuario.entidad';
+import { ProductoEntidad } from 'src/infraestructura/producto/entidad/producto.entidad';
+import { ReunionEntidad } from 'src/infraestructura/reunion/entidad/reunion.entidad';
 
 @Entity({ name: 'pedido' })
 export class PedidoEntidad {

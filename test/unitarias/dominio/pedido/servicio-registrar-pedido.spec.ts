@@ -1,11 +1,11 @@
-import { SinonStubbedInstance } from "sinon";
-import { Pedido } from "src/dominio/pedido/modelo/pedido";
-import { RepositorioPedido } from "src/dominio/pedido/puerto/repositorio/repositorio-pedido";
-import { ServicioRegistrarPedido } from "src/dominio/pedido/servicio/servicio-registrar-pedido"
-import { Producto } from "src/dominio/producto/modelo/producto";
-import { Reunion } from "src/dominio/reunion/modelo/reunion";
-import { Usuario } from "src/dominio/usuario/modelo/usuario";
-import { createStubObj } from "test/util/create-object.stub";
+import { SinonStubbedInstance } from 'sinon';
+import { Pedido } from 'src/dominio/pedido/modelo/pedido';
+import { RepositorioPedido } from 'src/dominio/pedido/puerto/repositorio/repositorio-pedido';
+import { ServicioRegistrarPedido } from 'src/dominio/pedido/servicio/servicio-registrar-pedido'
+import { Producto } from 'src/dominio/producto/modelo/producto';
+import { Reunion } from 'src/dominio/reunion/modelo/reunion';
+import { Usuario } from 'src/dominio/usuario/modelo/usuario';
+import { createStubObj } from 'test/util/create-object.stub';
 
 describe('ServicioRegistrarPedido', () => {
 

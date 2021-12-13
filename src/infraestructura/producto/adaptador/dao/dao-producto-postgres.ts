@@ -1,8 +1,8 @@
-import { Injectable, NotFoundException } from "@nestjs/common";
-import { InjectEntityManager } from "@nestjs/typeorm";
-import { ProductoDto } from "src/aplicacion/producto/consulta/dto/producto.dto";
-import { DaoProducto } from "src/dominio/producto/puerto/dao/dao-producto";
-import { EntityManager } from "typeorm";
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectEntityManager } from '@nestjs/typeorm';
+import { ProductoDto } from 'src/aplicacion/producto/consulta/dto/producto.dto';
+import { DaoProducto } from 'src/dominio/producto/puerto/dao/dao-producto';
+import { EntityManager } from 'typeorm';
 
 @Injectable()
 export class DaoProductoPostgres implements DaoProducto {
@@ -25,7 +25,7 @@ export class DaoProductoPostgres implements DaoProducto {
         );
 
         if(respuesta.length === 0){
-        throw new NotFoundException("Error, producto no existe")
+        throw new NotFoundException('Error, producto no existe')
         }
         
         return respuesta[0];
