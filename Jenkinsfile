@@ -32,6 +32,8 @@ pipeline{
             }
             stage('test '){
                 steps {
+					sh 'npm run test:unit'
+					sh 'npm run test:e2e'
                     sh 'npm run test:cov'					
 				}
             }

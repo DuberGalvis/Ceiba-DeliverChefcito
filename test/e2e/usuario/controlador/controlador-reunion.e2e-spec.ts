@@ -62,7 +62,7 @@ describe('Pruebas al controlador de reuniones', () => {
     await app.close();
   });
 
-  it('debería consultar la eeunion registrada', () => {
+  it('deberia consultar la reunion registrada', () => {
 
     const reunion: any = [{ tipo: 'TIPO_PEQUENA', precio: 40000, detalle: 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.' }];
     daoReunion.consultar.returns(Promise.resolve(reunion));
@@ -73,7 +73,7 @@ describe('Pruebas al controlador de reuniones', () => {
       .expect(reunion);
   });
 
-  it('debería fallar al registar una reunion con tipo incorrecto', async () => {
+  it('deberia fallar al registar una reunion con tipo incorrecto', async () => {
     const reunion: ComandoRegistrarReunion = {
       tipo: 'TIPO_MUY_PEQUENA',
       precio: 40000,
