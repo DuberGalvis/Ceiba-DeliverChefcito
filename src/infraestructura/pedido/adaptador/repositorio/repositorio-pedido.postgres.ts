@@ -36,7 +36,7 @@ export class RepositorioPedidoPostgres {
         .where('reunion.tipo = :tipo', { tipo: pedido.reunion.tipo })
         .getOne();
         entidad.fechaRealizacion = pedido.fechaRealizacion;
-        entidad.estado = pedido.estado
+        entidad.estado = pedido.estado;
         entidad.direccion = pedido.direccion;
         entidad.valorTotal = pedido.valorTotal;
         entidad.horasDeServicio = pedido.horasDeServicio;

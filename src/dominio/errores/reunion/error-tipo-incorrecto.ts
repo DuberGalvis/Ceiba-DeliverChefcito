@@ -1,7 +1,7 @@
-import { ErrorDeNegocio } from "../error-de-negocio";
+import { ErrorDeNegocio } from '../error-de-negocio';
 
 export class ErrorTipoIncorrecto extends ErrorDeNegocio {
     constructor(mensaje: string){
-        super(mensaje, ErrorTipoIncorrecto.name)
+        super(mensaje, ErrorTipoIncorrecto.name);
     }
 }

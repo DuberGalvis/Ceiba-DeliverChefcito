@@ -82,7 +82,7 @@ export class Pedido {
     if(!reunion){
       throw new ErrorNoHayReunion(
         'La Reunion esta vacia, es requerido'
-      )
+      );
     }
   }
 

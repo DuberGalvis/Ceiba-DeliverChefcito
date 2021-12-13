@@ -19,7 +19,7 @@ export class DaoReunionPostgres implements DaoReunion {
         );
 
         if(respuesta.length === 0){
-            throw new NotFoundException('No se encuentra el tipo')
+            throw new NotFoundException('No se encuentra el tipo');
           }
           
           return respuesta[0];

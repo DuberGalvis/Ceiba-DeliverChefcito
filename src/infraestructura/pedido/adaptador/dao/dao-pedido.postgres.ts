@@ -19,12 +19,12 @@ export class DaoPedidoPostgres implements DaoPedido {
         let usuario = await this.entityManager.createQueryBuilder()
         .select('usuario')
         .from(UsuarioEntidad, 'usuario')
-        .where('usuario.nombre = :nombre', { nombre: nombre})
-        .getOne()
+        .where('usuario.nombre = :nombre', { nombre })
+        .getOne();
         return this.entityManager.query(
           "SELECT * FROM PEDIDO p WHERE p.usuario_id = $1 AND p.estado = 'ESTADO_ACTIVO'",
           [usuario.id]
-        )
+        );
     }
 
     async cambiarPedido({ usuario, producto, reunion, fechaRealizacion, direccion, valorTotal }) {
@@ -57,6 +57,6 @@ export class DaoPedidoPostgres implements DaoPedido {
           direccion: entidad.direccion, valorTotal: entidad.valorTotal
         })
         .where('usuario_id = :id', { id: entidad.usuario.id })
-        .execute()
+        .execute();
     }
 }

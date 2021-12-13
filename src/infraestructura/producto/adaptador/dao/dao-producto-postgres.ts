@@ -25,7 +25,7 @@ export class DaoProductoPostgres implements DaoProducto {
         );
 
         if(respuesta.length === 0){
-        throw new NotFoundException('Error, producto no existe')
+        throw new NotFoundException('Error, producto no existe');
         }
         
         return respuesta[0];
