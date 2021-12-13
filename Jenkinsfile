@@ -1,3 +1,4 @@
+@Library('ceiba-jenkins-library') _
 pipeline{
 	
 		agent {
@@ -47,7 +48,15 @@ pipeline{
                       }
 			 	}
 			 }
-		
+
+
+			stage('Static Code Analysis') {
+				steps{
+						sonarqubeMasQualityGatesP(sonarKey:'co.com.ceiba.adn:co.com.ceiba.adn:ceiba.deliverchefcito-duber.galvis', 
+					sonarName:'CeibaADN-Ceiba-DeliverChefcito(duber.galvis)', 
+					sonarPathProperties:'./sonar-project.properties')
+				}
+			} 
 		
 
 		}
