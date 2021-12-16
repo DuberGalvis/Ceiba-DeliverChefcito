@@ -13,6 +13,7 @@ import { servicioRegistrarReunionProveedor } from 'src/infraestructura/reunion/p
 import { ManejadorRegistrarReunion } from 'src/aplicacion/reunion/comando/registrar-reunion.manejador';
 import { ManejadorConsultarReunion } from 'src/aplicacion/reunion/consulta/consulta-reunion.manejador';
 import { ComandoRegistrarReunion } from 'src/aplicacion/reunion/comando/registrar-reunion.comando';
+import { ManejadorlistarReuniones } from 'src/aplicacion/reunion/consulta/listar-reunion-manejador';
 
 /**
  * Un sandbox es util cuando el módulo de nest se configura una sola vez durante el ciclo completo de pruebas
@@ -30,7 +31,7 @@ describe('Pruebas al controlador de reuniones', () => {
    **/
   beforeAll(async () => {
     repositorioReunion = createStubObj<RepositorioReunion>(['existeTipoReunion', 'guardar'], sinonSandbox);
-    daoReunion = createStubObj<DaoReunion>(['consultar'], sinonSandbox);
+    daoReunion = createStubObj<DaoReunion>(['consultar', 'listarReuniones'], sinonSandbox);
     const moduleRef = await Test.createTestingModule({
       controllers: [ReunionControlador],
       providers: [
@@ -44,6 +45,7 @@ describe('Pruebas al controlador de reuniones', () => {
         { provide: DaoReunion, useValue: daoReunion },
         ManejadorRegistrarReunion,
         ManejadorConsultarReunion,
+        ManejadorlistarReuniones,
       ],
     }).compile();
 
@@ -64,13 +66,26 @@ describe('Pruebas al controlador de reuniones', () => {
 
   it('deberia consultar la reunion registrada', () => {
 
-    const reunion: any = [{ tipo: 'TIPO_PEQUENA', precio: 40000, detalle: 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.' }];
+    const reunion: any = [{ tipo: 'TIPO_PEQUENA', precio: 40000 }];
+    const tipo: any = 'TIPO_PEQUENA';
     daoReunion.consultar.returns(Promise.resolve(reunion));
 
     return request(app.getHttpServer())
-      .get('/reuniones')
+      .get(`/reuniones/${tipo}`)
       .expect(HttpStatus.OK)
       .expect(reunion);
+  });
+
+  it('deberia listar las reuniones registradas', () => {
+
+    let listaReuniones: any = [{ tipo: 'TIPO_PEQUENA', precio: 40000 },
+    { tipo: 'TIPO_GRANDE', precio: 50000 }];
+    daoReunion.listarReuniones.returns(Promise.resolve(listaReuniones));
+
+    return request(app.getHttpServer())
+      .get(`/reuniones`)
+      .expect(HttpStatus.OK)
+      .expect(listaReuniones);
   });
 
   it('deberia fallar al registar una reunion con tipo incorrecto', async () => {

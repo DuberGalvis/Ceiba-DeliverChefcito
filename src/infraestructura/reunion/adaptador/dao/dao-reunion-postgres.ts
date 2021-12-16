@@ -11,7 +11,7 @@ export class DaoReunionPostgres implements DaoReunion {
         private readonly entityManager: EntityManager,
     ) {}
 
-    async consultar(tipo): Promise<ReunionDto> {
+    async consultar(tipo: string): Promise<ReunionDto> {
         let respuesta: Array<ReunionDto>;
         respuesta = await this.entityManager.query(
             'SELECT r.tipo, r.precio FROM REUNION r WHERE r.tipo = $1',
@@ -23,5 +23,18 @@ export class DaoReunionPostgres implements DaoReunion {
           }
           
           return respuesta[0];
+    }
+
+    async listarReuniones(): Promise<ReunionDto[]> {
+        let respuesta: ReunionDto[];
+        respuesta = await this.entityManager.query(
+            'SELECT r.tipo, r.precio FROM REUNION r',
+        );
+
+        if(respuesta.length === 0){
+            throw new NotFoundException('No hay registros de reunion');
+        }
+
+        return respuesta;
     }
 }

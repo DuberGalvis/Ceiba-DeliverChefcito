@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { ManejadorRegistrarReunion } from 'src/aplicacion/reunion/comando/registrar-reunion.manejador';
 import { ManejadorConsultarReunion } from 'src/aplicacion/reunion/consulta/consulta-reunion.manejador';
+import { ManejadorlistarReuniones } from 'src/aplicacion/reunion/consulta/listar-reunion-manejador';
 import { DaoReunion } from 'src/dominio/reunion/puerto/dao/dao-reunion';
 import { RepositorioReunion } from 'src/dominio/reunion/puerto/repositorio/repositorio-reunion';
 import { ServicioRegistrarReunion } from 'src/dominio/reunion/servicio/servicio-registrar-reunion';
@@ -19,11 +20,13 @@ import { servicioRegistrarReunionProveedor } from './servicio/servicio-registrar
         daoReunionProvider,
         ManejadorRegistrarReunion,
         ManejadorConsultarReunion,
+        ManejadorlistarReuniones,
     ],
     exports: [
         ServicioRegistrarReunion,
         ManejadorRegistrarReunion,
         ManejadorConsultarReunion,
+        ManejadorlistarReuniones,
         RepositorioReunion,
         DaoReunion,
     ],
