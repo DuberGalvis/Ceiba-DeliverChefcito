@@ -70,9 +70,21 @@ describe('Pruebas al controlador de productos', () => {
     daoProducto.consultar.returns(Promise.resolve(producto));
 
     return request(app.getHttpServer())
-      .get('/productos')
+      .get('/productos/Alitas Picantes')
       .expect(HttpStatus.OK)
       .expect(producto);
+  });
+
+  it('debería listar los productos registrados', () => {
+
+    const productos: any = [{ nombre: 'Alitas Picantes', precio: 40000, detalle: 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.' },
+    { nombre: 'Bandeja Paisa', precio: 60000, detalle: 'Comida tipica de antioquia con flijoles, variadas carnes.' }];
+    daoProducto.listar.returns(Promise.resolve(productos));
+
+    return request(app.getHttpServer())
+      .get('/productos')
+      .expect(HttpStatus.OK)
+      .expect(productos);
   });
 
   it('debería fallar al registar un producto con detalle muy largo', async () => {

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 
 import { ComandoRegistrarProducto } from 'src/aplicacion/producto/comando/registrar-producto.comando';
 import { ManejadorRegistrarProducto } from 'src/aplicacion/producto/comando/registrar-producto.manejador';
@@ -20,8 +20,13 @@ export class ProductoControlador {
         await this._manejadorRegistrarProducto.ejecutar(comandoRegistrarProducto);
     }
 
-    @Get()
-    async consultarProducto(@Body('nombre') nombre: string): Promise<ProductoDto> {
+    @Get(':nombre')
+    async consultarProducto(@Param('nombre') nombre: string): Promise<ProductoDto> {
         return this._manejadorConsultarProducto.ejecutar(nombre);
+    }
+
+    @Get()
+    async listarProductos(): Promise<ProductoDto[]> {
+        return this._manejadorListarProducto.ejecutar();
     }
 }
