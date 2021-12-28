@@ -22,7 +22,14 @@ export class DaoPedidoPostgres implements DaoPedido {
         .where('usuario.nombre = :nombre', { nombre })
         .getOne();
         return this.entityManager.query(
-          "SELECT * FROM PEDIDO p WHERE p.usuario_id = $1 AND p.estado = 'ESTADO_ACTIVO'",
+          `SELECT p.fecha_realizacion AS "fechaRealizacion", p.direccion, 
+          p.valor_total AS "valorTotal", p.horas_de_servicio AS "horasDeServicio", 
+          pro.nombre AS "nombreProducto", r.tipo AS "tipoReunion" 
+          FROM PEDIDO p, PRODUCTO pro, reunion r 
+          WHERE usuario_id = $1 
+          AND estado = 'ESTADO_ACTIVO'
+          AND producto_id = pro.id
+          AND reunion_id = r.id`,
           [usuario.id]
         );
     }
@@ -45,16 +52,16 @@ export class DaoPedidoPostgres implements DaoPedido {
         .from(ReunionEntidad, 'reunion')
         .where('reunion.tipo = :tipo', { tipo: reunion.tipo })
         .getOne();
-        entidad.fechaRealizacion = fechaRealizacion;
+        entidad.fecha_realizacion = fechaRealizacion;
         entidad.direccion = direccion;
-        entidad.valorTotal = valorTotal;
+        entidad.valor_total = valorTotal;
         
         await this.entityManager.createQueryBuilder()
         .update(PedidoEntidad)
         .set({
           producto: entidad.producto, reunion: entidad.reunion,
-          fechaRealizacion: entidad.fechaRealizacion,
-          direccion: entidad.direccion, valorTotal: entidad.valorTotal
+          fecha_realizacion: entidad.fecha_realizacion,
+          direccion: entidad.direccion, valor_total: entidad.valor_total
         })
         .where('usuario_id = :id', { id: entidad.usuario.id })
         .execute();

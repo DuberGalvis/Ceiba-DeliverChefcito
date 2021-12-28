@@ -1,7 +1,7 @@
 import { ErrorDeNegocio } from '../error-de-negocio';
 
-export class ErrorNoHayValortotal extends ErrorDeNegocio {
+export class ErrorNoHayValorTotal extends ErrorDeNegocio {
     constructor(mensaje: string){
-        super(mensaje, ErrorNoHayValortotal.name);
+        super(mensaje, ErrorNoHayValorTotal.name);
     }
 }

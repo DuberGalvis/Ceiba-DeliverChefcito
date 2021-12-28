@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Patch, Post, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Get, Patch, Post, Query, UsePipes, ValidationPipe } from '@nestjs/common';
 
 import { ComandoCambiarPedido } from 'src/aplicacion/pedido/cambio/cambiar-pedido.comando';
 import { ManejadorCambiarPedido } from 'src/aplicacion/pedido/cambio/cambiar-pedido.manejador';
@@ -23,7 +23,7 @@ export class PedidoControlador {
     }
 
     @Get()
-    async listarPedidos(@Body('nombre') nombre: string): Promise<PedidoDto[]>{
+    async listarPedidos(@Query('nombre') nombre: string): Promise<PedidoDto[]>{
         return this._manejadorListarPedido.ejecutar(nombre);
     }
 

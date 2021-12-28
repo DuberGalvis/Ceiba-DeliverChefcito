@@ -15,6 +15,7 @@ import { createSandbox, SinonStubbedInstance } from 'sinon';
 import { createStubObj } from '../../../util/create-object.stub';
 import { ManejadorConsultarUsuario } from 'src/aplicacion/usuario/consulta/consultar-usuario.manejador';
 import { ManejadorCambiarUsuario } from 'src/aplicacion/usuario/cambio/cambiar-usuario.manejador';
+import { ManejadorEliminarUsuario } from 'src/aplicacion/usuario/cambio/eliminar-usuario.manejador';
 
 /**
  * Un sandbox es util cuando el módulo de nest se configura una sola vez durante el ciclo completo de pruebas
@@ -32,7 +33,7 @@ describe('Pruebas al controlador de usuarios', () => {
    **/
   beforeAll(async () => {
     repositorioUsuario = createStubObj<RepositorioUsuario>(['existeNombreUsuario', 'guardar'], sinonSandbox);
-    daoUsuario = createStubObj<DaoUsuario>(['listar', 'consultar', 'cambiar'], sinonSandbox);
+    daoUsuario = createStubObj<DaoUsuario>(['listar', 'consultar', 'cambiar', 'eliminar'], sinonSandbox);
     const moduleRef = await Test.createTestingModule({
       controllers: [UsuarioControlador],
       providers: [
@@ -48,6 +49,7 @@ describe('Pruebas al controlador de usuarios', () => {
         ManejadorListarUsuario,
         ManejadorConsultarUsuario,
         ManejadorCambiarUsuario,
+        ManejadorEliminarUsuario,
       ],
     }).compile();
 
@@ -69,10 +71,12 @@ describe('Pruebas al controlador de usuarios', () => {
   it('debería consultar el usuario registrado', () => {
 
     const usuario: any = [{ nombre: 'Lorem ipsum', clave: '1234' }];
+    const nombre: string = 'Lorem ipsum';
+    const clave: string = '1234';
     daoUsuario.consultar.returns(Promise.resolve(usuario));
 
     return request(app.getHttpServer())
-      .get('/usuarios')
+      .get(`/usuarios?nombre=${nombre}&clave=${clave}`)
       .expect(HttpStatus.OK)
       .expect(usuario);
   });
@@ -129,5 +133,16 @@ describe('Pruebas al controlador de usuarios', () => {
     return request(app.getHttpServer())
       .post('/usuarios').send(usuario)
       .expect(HttpStatus.CREATED);
+  });
+
+  it('debería eliminar el usuario registrado', () => {
+
+    const usuario: any = [{ nombre: 'Lorem ipsum', clave: '1234' }];
+    const nombre: string = 'Lorem ipsum';
+    daoUsuario.eliminar.returns(Promise.resolve(usuario));
+
+    return request(app.getHttpServer())
+      .delete(`/usuarios/:${nombre}`)
+      .expect(HttpStatus.OK);
   });
 });

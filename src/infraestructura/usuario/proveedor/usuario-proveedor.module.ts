@@ -10,6 +10,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsuarioEntidad } from '../entidad/usuario.entidad';
 import { ManejadorConsultarUsuario } from 'src/aplicacion/usuario/consulta/consultar-usuario.manejador';
 import { ManejadorCambiarUsuario } from 'src/aplicacion/usuario/cambio/cambiar-usuario.manejador';
+import { ManejadorEliminarUsuario } from 'src/aplicacion/usuario/cambio/eliminar-usuario.manejador';
 
 @Module({
   imports: [TypeOrmModule.forFeature([UsuarioEntidad])],
@@ -20,12 +21,14 @@ import { ManejadorCambiarUsuario } from 'src/aplicacion/usuario/cambio/cambiar-u
     ManejadorRegistrarUsuario,
     ManejadorConsultarUsuario,
     ManejadorCambiarUsuario,
+    ManejadorEliminarUsuario,
   ],
   exports: [
     ServicioRegistrarUsuario,
     ManejadorRegistrarUsuario,
     ManejadorConsultarUsuario,
     ManejadorCambiarUsuario,
+    ManejadorEliminarUsuario,
     RepositorioUsuario,
     DaoUsuario,
   ],

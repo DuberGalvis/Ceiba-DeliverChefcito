@@ -12,5 +12,5 @@ export class UsuarioEntidad {
   clave: string;
 
   @Column()
-  fechaCreacion: Date;
+  fecha_creacion: Date;
 }

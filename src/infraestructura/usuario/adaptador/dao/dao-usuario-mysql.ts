@@ -15,7 +15,7 @@ export class DaoUsuarioMysql implements DaoUsuario {
   async consultar(nombre: string, clave: string): Promise<UsuarioDto> {
     let respuesta: Array<UsuarioDto>;
     respuesta = await this.entityManager.query(
-      'SELECT u.nombre FROM USUARIO u WHERE u.nombre = $1 AND u.clave = $2',
+      'SELECT u.nombre, u.clave FROM USUARIO u WHERE u.nombre = $1 AND u.clave = $2',
       [nombre, clave],
     );
 
@@ -41,6 +41,13 @@ export class DaoUsuarioMysql implements DaoUsuario {
   async listar(): Promise<UsuarioDto[]> {
     return this.entityManager.query(
       'SELECT u.nombre, u.fechaCreacion FROM USUARIO u',
+    );
+  }
+
+  async eliminar(nombre: string) {
+    return this.entityManager.query(
+      'DELETE FROM USUARIO u WHERE u.nombre = $1',
+      [nombre]
     );
   }
 }

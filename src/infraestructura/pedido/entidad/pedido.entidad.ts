@@ -22,7 +22,7 @@ export class PedidoEntidad {
     reunion: ReunionEntidad;
 
     @Column()
-    fechaRealizacion: Date;
+    fecha_realizacion: Date;
 
     @Column()
     estado: string;
@@ -31,8 +31,8 @@ export class PedidoEntidad {
     direccion: string;
 
     @Column()
-    valorTotal: number;
+    valor_total: number;
 
     @Column()
-    horasDeServicio: number;
+    horas_de_servicio: number;
 }
