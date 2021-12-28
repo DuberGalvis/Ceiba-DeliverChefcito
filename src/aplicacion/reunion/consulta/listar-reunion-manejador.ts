@@ -1,7 +1,7 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable } from '@nestjs/common';
 
-import { DaoReunion } from "src/dominio/reunion/puerto/dao/dao-reunion";
-import { ReunionDto } from "./dto/reunion.dto";
+import { DaoReunion } from 'src/dominio/reunion/puerto/dao/dao-reunion';
+import { ReunionDto } from './dto/reunion.dto';
 
 @Injectable()
 export class ManejadorlistarReuniones {
