@@ -22,7 +22,6 @@ export class RepositorioUsuarioMysql implements RepositorioUsuario {
     entidad.fecha_creacion = new Date(usuario.fechaCreacion);
     entidad.nombre = usuario.nombre;
     await this.repositorio.save(entidad);
-    console.log(usuario);
     return usuario;
   }
 }
