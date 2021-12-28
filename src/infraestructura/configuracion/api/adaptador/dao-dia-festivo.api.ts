@@ -6,11 +6,12 @@ import { DaoDiaFestivo } from 'src/dominio/pedido/puerto/dao/dao-dia-festivo';
 @Injectable()
 export class DaoDiaFestivoApi implements DaoDiaFestivo {
     constructor(private readonly httpService: HttpService) {}
-
+    
     async validarEsDiaFestivo({country, year, day, month}: DiaFestivoDto): Promise<Array<string>> {
+        console.log(country);
         const esDiaFestivo = await this.httpService.get(
-            `${process.env.API_CALENDARIO_FESTIVO}/holidays?
-            &api_key${process.env.API_KEY}
+            `https://calendarific.com/api/v2/holidays?
+            &api_key=cb28a8e03e75118e12eedf405e2405264999d4ce
             &country=${country.toString}
             &year=${year.toString}
             &day=${day.toString}

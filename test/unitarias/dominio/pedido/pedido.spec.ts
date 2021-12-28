@@ -4,7 +4,7 @@ import { ErrorNoHayDireccion } from 'src/dominio/errores/pedido/error-no-hay-dir
 import { ErrorNoHayProducto } from 'src/dominio/errores/pedido/error-no-hay-producto';
 import { ErrorNoHayReunion } from 'src/dominio/errores/pedido/error-no-hay-reunion';
 import { ErrorNoHayUsuario } from 'src/dominio/errores/pedido/error-no-hay-usuario';
-import { ErrorNoHayValortotal } from 'src/dominio/errores/pedido/error-no-hay-valortotal';
+import { ErrorNoHayValorTotal } from 'src/dominio/errores/pedido/error-no-hay-valortotal';
 import { Pedido } from 'src/dominio/pedido/modelo/pedido';
 import { Producto } from 'src/dominio/producto/modelo/producto';
 import { Reunion } from 'src/dominio/reunion/modelo/reunion';
@@ -21,7 +21,7 @@ describe('Pedido', () => {
     return expect(async () => new _Pedido( new _Usuario('juan', '1234', new Date().toISOString()),
       new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
       new _Reunion('TIPO_GRANDE', 50000), 
-      '2021-12-06',
+      '2021-12-13T21:56:24.194Z',
       'Carrera 80 # 70',
       250000,
       5))
@@ -98,7 +98,7 @@ describe('Pedido', () => {
       undefined,
       5))
       .rejects
-      .toStrictEqual(new ErrorNoHayValortotal('El valor total esta vacio, es requerido'));
+      .toStrictEqual(new ErrorNoHayValorTotal('El valor total esta vacio, es requerido'));
   });
 
   it('producto con todas las validaciones ok debería crear bien', () => {

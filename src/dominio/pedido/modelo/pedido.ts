@@ -1,8 +1,4 @@
-import { HttpService } from '@nestjs/common';
-
 import { ManejadorConsultarDiaFestivo } from 'src/aplicacion/api/consulta/consultar-dia-festivo.manejador';
-import { DiaFestivoDto } from 'src/aplicacion/api/consulta/dto/dia-festivo.dto';
-import { ErrorConsultaFallida } from 'src/dominio/errores/pedido/error-consulta-fallida';
 import { ErrorHoraDeServicio } from 'src/dominio/errores/pedido/error-hora-de-servicio';
 import { ErrorLunesNoFestivo } from 'src/dominio/errores/pedido/error-lunes-no-festivo';
 import { ErrorNoHayDireccion } from 'src/dominio/errores/pedido/error-no-hay-direccion';
@@ -13,7 +9,6 @@ import { ErrorNoHayValorTotal } from 'src/dominio/errores/pedido/error-no-hay-va
 import { Producto } from 'src/dominio/producto/modelo/producto';
 import { Reunion } from 'src/dominio/reunion/modelo/reunion';
 import { Usuario } from 'src/dominio/usuario/modelo/usuario';
-import { DaoDiaFestivoApi } from 'src/infraestructura/configuracion/api/adaptador/dao-dia-festivo.api';
 
 const ESTADO_ACTIVO = 'ESTADO_ACTIVO';
 const ESTADO_CANCELADO = 'ESTADO_CANCELADO';
@@ -21,7 +16,6 @@ const ESTADO_FINALIZADO = 'ESTADO_FINALIZADO';
 const LUNES = 1;
 const HORARIO_MAXIMO = 8;
 const HORARIO_MINIMO = 4;
-const COLOMBIA = 'CO';
 const UNO = 1;
 export class Pedido {
   readonly #usuario: Usuario;
@@ -32,12 +26,10 @@ export class Pedido {
   readonly #direccion: string;
   readonly #valorTotal: number;
   readonly #horasDeServicio: number;
-  readonly #esFestivo: boolean;
   private readonly _manejadorConsultarDiaFestivo: ManejadorConsultarDiaFestivo;
 
 
   constructor(usuario: Usuario, producto: Producto, reunion: Reunion, fechaRealizacion: string, direccion: string, valorTotal: number, horasDeServicio: number) {
-    this.#esFestivo = this.validarEsFestivo(fechaRealizacion);
     this.validarHayUsuario(usuario);
     this.validarHayProducto(producto);
     this.validarHayReunion(reunion);
@@ -57,9 +49,7 @@ export class Pedido {
 
   private validarLunesNoFestivo(fechaRealizacion: string) {
     let dia = new Date(fechaRealizacion).getDay();
-    console.log(this.#esFestivo);
-    console.log(dia);
-    if (dia === LUNES && this.#esFestivo === false) {
+    if (dia === LUNES) {
       throw new ErrorLunesNoFestivo(
         'No se puede agendar pedido para este día',
       );
@@ -114,30 +104,6 @@ export class Pedido {
     }
   }
 
-  private validarEsFestivo(fechaRealizacion: string): boolean{
-    let diaFestivoDto = new DiaFestivoDto;
-    let httpService = new HttpService;
-    const daoDiaFestivo = new DaoDiaFestivoApi(httpService);
-    diaFestivoDto.country = COLOMBIA;
-    diaFestivoDto.year = new Date(fechaRealizacion).getFullYear();
-    diaFestivoDto.day = new Date(fechaRealizacion).getDate();
-    diaFestivoDto.month = new Date(fechaRealizacion).getMonth() + UNO;
-    console.log(diaFestivoDto, 'Aqui va')
-    let respuesta: Promise<string[]> = daoDiaFestivo.validarEsDiaFestivo(diaFestivoDto);
-    respuesta.then(response => {
-      if(response.length !== 0){
-        return true;
-      }
-    })
-    .catch(error => {
-      console.log('error va')
-      throw new ErrorConsultaFallida(
-        `Error consultando el día festivo: ${error}`
-      )}
-    );     
-    return false;
-  }
-
   get usuario(): Usuario {
     return this.#usuario;
   }
@@ -168,9 +134,5 @@ export class Pedido {
 
   get horasDeServicio(): number{
     return this.#horasDeServicio;
-  }
-
-  get esFestivo(): boolean{
-    return this.#esFestivo;
   }
 }
