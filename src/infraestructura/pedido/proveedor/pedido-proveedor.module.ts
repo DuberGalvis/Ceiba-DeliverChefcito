@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { ManejadorCambiarPedido } from 'src/aplicacion/pedido/cambio/cambiar-pedido.manejador';
+import { ManejadorCancelarPedido } from 'src/aplicacion/pedido/cambio/cancelar-pedido.manejador';
 import { ManejadorRegistrarPedido } from 'src/aplicacion/pedido/comando/registrar-pedido.manejador';
 import { ManejadorListarPedido } from 'src/aplicacion/pedido/consulta/listar-pedido.manejador';
 import { DaoPedido } from 'src/dominio/pedido/puerto/dao/dao-pedido';
@@ -22,12 +23,14 @@ import { servicioRegistrarPedidoProveedor } from './servicio/servicio-registrar-
         ManejadorRegistrarPedido,
         ManejadorListarPedido,
         ManejadorCambiarPedido,
+        ManejadorCancelarPedido,
     ],
     exports: [
         ServicioRegistrarPedido,
         ManejadorRegistrarPedido,
         ManejadorListarPedido,
         ManejadorCambiarPedido,
+        ManejadorCancelarPedido,
         DaoPedido,
     ],
 })

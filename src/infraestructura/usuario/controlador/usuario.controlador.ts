@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Query, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Patch, Post, Query, UsePipes, ValidationPipe } from '@nestjs/common';
 import { ComandoRegistrarUsuario } from 'src/aplicacion/usuario/comando/registrar-usuario.comando';
 import { ManejadorRegistrarUsuario } from 'src/aplicacion/usuario/comando/registar-usuario.manejador';
 import { UsuarioDto } from 'src/aplicacion/usuario/consulta/dto/usuario.dto';
@@ -33,8 +33,8 @@ export class UsuarioControlador {
     return this._manejadorCambiarUsuario.ejecutar(comandoCambiarUsuario);
   }
 
-  @Delete(':nombre')
-  async eliminarUsuario(@Param('nombre') nombre: string) {
+  @Delete()
+  async eliminarUsuario(@Query('nombre') nombre: string) {
     return this._manejadorEliminarUsuario.ejecutar(nombre);
   }
 }

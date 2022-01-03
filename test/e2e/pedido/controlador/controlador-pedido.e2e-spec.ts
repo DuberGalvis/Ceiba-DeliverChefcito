@@ -17,6 +17,9 @@ import { ComandoRegistrarPedido } from 'src/aplicacion/pedido/comando/registrar-
 import { Usuario } from 'src/dominio/usuario/modelo/usuario';
 import { Producto } from 'src/dominio/producto/modelo/producto';
 import { Reunion } from 'src/dominio/reunion/modelo/reunion';
+import { ManejadorCancelarPedido } from 'src/aplicacion/pedido/cambio/cancelar-pedido.manejador';
+import { ComandoCambiarPedido } from 'src/aplicacion/pedido/cambio/cambiar-pedido.comando';
+import { ComandoCancelarPedido } from 'src/aplicacion/pedido/cambio/cancelar-pedido.comando';
 
 /**
  * Un sandbox es util cuando el módulo de nest se configura una sola vez durante el ciclo completo de pruebas
@@ -34,7 +37,7 @@ describe('Pruebas al controlador de pedidos', () => {
    **/
   beforeAll(async () => {
     repositorioPedido = createStubObj<RepositorioPedido>(['guardar'], sinonSandbox);
-    daoPedido = createStubObj<DaoPedido>(['listar', 'cambiarPedido'], sinonSandbox);
+    daoPedido = createStubObj<DaoPedido>(['listar', 'cambiarPedido', 'cancelarPedido'], sinonSandbox);
     const moduleRef = await Test.createTestingModule({
       controllers: [PedidoControlador],
       providers: [
@@ -49,6 +52,7 @@ describe('Pruebas al controlador de pedidos', () => {
         ManejadorRegistrarPedido,
         ManejadorCambiarPedido,
         ManejadorListarPedido,
+        ManejadorCancelarPedido,
       ],
     }).compile();
 
@@ -78,8 +82,8 @@ describe('Pruebas al controlador de pedidos', () => {
       .expect(pedido);
   });
 
-  it('debería crear registar un pedido', async () => {
-    const pedido: ComandoRegistrarPedido = {
+  it('debería registar un pedido', async () => {
+    const cambiarPedido: ComandoRegistrarPedido = {
       usuario: new Usuario('juan', '1234', new Date().toISOString()),
       producto: new Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
       reunion: new Reunion('TIPO_GRANDE', 50000),
@@ -90,7 +94,35 @@ describe('Pruebas al controlador de pedidos', () => {
     };
 
     return request(app.getHttpServer())
-      .post('/pedidos').send(pedido)
+      .post('/pedidos').send(cambiarPedido)
       .expect(HttpStatus.CREATED);
+  });
+
+  it('debería cambiar un pedido', async () => {
+    const cambiarPedido: ComandoCambiarPedido = {
+      id: 23,
+      usuario: new Usuario('juan', '1234', new Date().toISOString()),
+      producto: new Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
+      reunion: new Reunion('TIPO_GRANDE', 50000),
+      fechaRealizacion: '2021-12-07T21:56:24.194Z',
+      direccion: 'Carrera 80 # 70',
+      valorTotal: 90000,
+      horasDeServicio: 7,  
+    };
+
+    return request(app.getHttpServer())
+      .patch('/pedidos').send(cambiarPedido)
+      .expect(HttpStatus.OK);
+  });
+
+  it('debería cancelar el pedido registrado', () => {
+
+    const cancelarPedido: ComandoCancelarPedido = {
+      id: 23,  
+    };
+
+    return request(app.getHttpServer())
+      .patch('/pedidos/cancelar').send(cancelarPedido)
+      .expect(HttpStatus.OK);
   });
 });

@@ -8,7 +8,6 @@ import { UsuarioControlador } from 'src/infraestructura/usuario/controlador/usua
 import { ServicioRegistrarUsuario } from 'src/dominio/usuario/servicio/servicio-registrar-usuario';
 import { servicioRegistrarUsuarioProveedor } from 'src/infraestructura/usuario/proveedor/servicio/servicio-registrar-usuario.proveedor';
 import { ManejadorRegistrarUsuario } from 'src/aplicacion/usuario/comando/registar-usuario.manejador';
-import { ManejadorListarUsuario } from 'src/aplicacion/usuario/consulta/listar-usuarios.manejador';
 import { ComandoRegistrarUsuario } from 'src/aplicacion/usuario/comando/registrar-usuario.comando';
 import { AppLogger } from 'src/infraestructura/configuracion/ceiba-logger.service';
 import { createSandbox, SinonStubbedInstance } from 'sinon';
@@ -33,7 +32,7 @@ describe('Pruebas al controlador de usuarios', () => {
    **/
   beforeAll(async () => {
     repositorioUsuario = createStubObj<RepositorioUsuario>(['existeNombreUsuario', 'guardar'], sinonSandbox);
-    daoUsuario = createStubObj<DaoUsuario>(['listar', 'consultar', 'cambiar', 'eliminar'], sinonSandbox);
+    daoUsuario = createStubObj<DaoUsuario>(['consultar', 'cambiar', 'eliminar'], sinonSandbox);
     const moduleRef = await Test.createTestingModule({
       controllers: [UsuarioControlador],
       providers: [
@@ -46,7 +45,6 @@ describe('Pruebas al controlador de usuarios', () => {
         { provide: RepositorioUsuario, useValue: repositorioUsuario },
         { provide: DaoUsuario, useValue: daoUsuario },
         ManejadorRegistrarUsuario,
-        ManejadorListarUsuario,
         ManejadorConsultarUsuario,
         ManejadorCambiarUsuario,
         ManejadorEliminarUsuario,
@@ -142,7 +140,7 @@ describe('Pruebas al controlador de usuarios', () => {
     daoUsuario.eliminar.returns(Promise.resolve(usuario));
 
     return request(app.getHttpServer())
-      .delete(`/usuarios/:${nombre}`)
+      .delete(`/usuarios?nombre=${nombre}`)
       .expect(HttpStatus.OK);
   });
 });

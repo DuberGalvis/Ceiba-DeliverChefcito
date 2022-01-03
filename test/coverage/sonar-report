@@ -1,42 +1,67 @@
 <testExecutions version="1">
-<file path="test\unitarias\dominio\reunion\reunion.spec.ts">
-<testCase name="Reunion reunion con tipo diferente deber&#xED;a retornar error" duration="5" />
-<testCase name="Reunion reunion sin precio deber&#xED;a retornar error" duration="0" />
-<testCase name="Reunion reunion con validaciones correctas deber&#xED;a crear bien" duration="1" />
-</file>
-<file path="test\unitarias\dominio\producto\producto.spec.ts">
-<testCase name="Producto producto con detalle mayor que 100 deber&#xED;a retornar error" duration="6" />
-<testCase name="Producto producto con nombre vacio deber&#xED;a retornar error" duration="1" />
-<testCase name="Producto producto con precio vacio deber&#xED;a retornar error" duration="0" />
-<testCase name="Producto producto con validaciones ok se deber&#xED;a crear" duration="1" />
-</file>
-<file path="test\unitarias\dominio\usuario\servicio-registrar-usuario.spec.ts">
-<testCase name="ServicioRegistrarUsuario si el nombre de usuario ya existe no se puede crear y deberia retonar error" duration="18" />
-<testCase name="ServicioRegistrarUsuario si el nombre no existe guarda el usuario al repositorio" duration="2" />
+<file path="test\unitarias\dominio\pedido\servicio-registrar-pedido.spec.ts">
+<testCase name="ServicioRegistrarPedido si el pedido es valido guarda al repositorio" duration="9" />
 </file>
 <file path="test\unitarias\dominio\producto\servicio-registrar-usuario.spec.ts">
-<testCase name="ServicioRegistrarProducto si el nombre del producto ya existe no se puede crear y deberia retonar error" duration="10" />
-<testCase name="ServicioRegistrarProducto si el nombre no existe guarda el producto al repositorio" duration="8" />
+<testCase name="ServicioRegistrarProducto si el nombre del producto ya existe no se puede crear y deberia retonar error" duration="11" />
+<testCase name="ServicioRegistrarProducto si el nombre no existe guarda el producto al repositorio" duration="6" />
+</file>
+<file path="test\unitarias\dominio\usuario\servicio-registrar-usuario.spec.ts">
+<testCase name="ServicioRegistrarUsuario si el nombre de usuario ya existe no se puede crear y deberia retonar error" duration="8" />
+<testCase name="ServicioRegistrarUsuario si el nombre no existe guarda el usuario al repositorio" duration="3" />
+</file>
+<file path="test\unitarias\dominio\reunion\reunion.spec.ts">
+<testCase name="Reunion reunion con tipo diferente deber&#xED;a retornar error" duration="4" />
+<testCase name="Reunion reunion sin precio deber&#xED;a retornar error" duration="1" />
+<testCase name="Reunion reunion con validaciones correctas deber&#xED;a crear bien" duration="0" />
 </file>
 <file path="test\unitarias\dominio\reunion\servicio-registrar-reunion.spec.ts">
-<testCase name="ServicioRegistrarReunion si el tipo de reunion ya existe no se puede crear y deberia retonar error" duration="9" />
+<testCase name="ServicioRegistrarReunion si el tipo de reunion ya existe no se puede crear y deberia retonar error" duration="8" />
 <testCase name="ServicioRegistrarReunion si el tipo no existe guarda la reunion en el repositorio" duration="2" />
 </file>
-<file path="test\unitarias\dominio\usuario\usuario.spec.ts">
-<testCase name="Usuario usuario con clave menor que 4 deber&#xED;a retornar error" duration="4" />
-<testCase name="Usuario usuario con clave igual a 4 deber&#xED;a crear bien" duration="2" />
-</file>
 <file path="test\unitarias\dominio\pedido\pedido.spec.ts">
-<testCase name="Pedido Pedido con fecha de lunes deber&#xED;a retornar error" duration="4" />
+<testCase name="Pedido Pedido con fecha de lunes deber&#xED;a retornar error" duration="11" />
 <testCase name="Pedido Pedido con horario que pasa el maximo de horas deber&#xED;a retornar error" duration="1" />
-<testCase name="Pedido Pedido sin usuario deberia retornar error" duration="0" />
-<testCase name="Pedido Pedido sin producto deberia retornar error" duration="1" />
-<testCase name="Pedido Pedido sin reunion deberia retornar error" duration="0" />
-<testCase name="Pedido Pedido sin direccion deberia retornar error" duration="0" />
+<testCase name="Pedido Pedido sin usuario deberia retornar error" duration="1" />
+<testCase name="Pedido Pedido sin producto deberia retornar error" duration="2" />
+<testCase name="Pedido Pedido sin reunion deberia retornar error" duration="1" />
+<testCase name="Pedido Pedido sin direccion deberia retornar error" duration="1" />
 <testCase name="Pedido Pedido sin valor total deberia retornar error" duration="1" />
 <testCase name="Pedido producto con todas las validaciones ok deber&#xED;a crear bien" duration="1" />
 </file>
-<file path="test\unitarias\dominio\pedido\servicio-registrar-pedido.spec.ts">
-<testCase name="ServicioRegistrarPedido si el pedido es valido guarda al repositorio" duration="5" />
+<file path="test\unitarias\dominio\producto\producto.spec.ts">
+<testCase name="Producto producto con detalle mayor que 100 deber&#xED;a retornar error" duration="5" />
+<testCase name="Producto producto con nombre vacio deber&#xED;a retornar error" duration="1" />
+<testCase name="Producto producto con precio vacio deber&#xED;a retornar error" duration="1" />
+<testCase name="Producto producto con validaciones ok se deber&#xED;a crear" duration="0" />
+</file>
+<file path="test\unitarias\dominio\usuario\usuario.spec.ts">
+<testCase name="Usuario usuario con clave menor que 4 deber&#xED;a retornar error" duration="4" />
+<testCase name="Usuario usuario con clave igual a 4 deber&#xED;a crear bien" duration="1" />
+</file>
+<file path="test\e2e\producto\controlador\controlador-producto.e2e-spec.ts">
+<testCase name="Pruebas al controlador de productos deber&#xED;a consultar el producto registrado" duration="32" />
+<testCase name="Pruebas al controlador de productos deber&#xED;a listar los productos registrados" duration="6" />
+<testCase name="Pruebas al controlador de productos deber&#xED;a fallar al registar un producto con detalle muy largo" duration="27" />
+<testCase name="Pruebas al controlador de productos deber&#xED;a fallar al registar un producto ya existente" duration="6" />
+</file>
+<file path="test\e2e\pedido\controlador\controlador-pedido.e2e-spec.ts">
+<testCase name="Pruebas al controlador de pedidos deber&#xED;a listar el pedido registrado" duration="25" />
+<testCase name="Pruebas al controlador de pedidos deber&#xED;a registar un pedido" duration="27" />
+<testCase name="Pruebas al controlador de pedidos deber&#xED;a cambiar un pedido" duration="4" />
+<testCase name="Pruebas al controlador de pedidos deber&#xED;a cancelar el pedido registrado" duration="4" />
+</file>
+<file path="test\e2e\reunion\controlador\controlador-reunion.e2e-spec.ts">
+<testCase name="Pruebas al controlador de reuniones deberia consultar la reunion registrada" duration="22" />
+<testCase name="Pruebas al controlador de reuniones deberia listar las reuniones registradas" duration="3" />
+<testCase name="Pruebas al controlador de reuniones deberia fallar al registar una reunion con tipo incorrecto" duration="30" />
+</file>
+<file path="test\e2e\usuario\controlador\controlador-usuario.e2e-spec.ts">
+<testCase name="Pruebas al controlador de usuarios deber&#xED;a consultar el usuario registrado" duration="21" />
+<testCase name="Pruebas al controlador de usuarios deber&#xED;a cambiar la clave del usuario registrado" duration="3" />
+<testCase name="Pruebas al controlador de usuarios deber&#xED;a fallar al registar un usuario clave muy corta" duration="18" />
+<testCase name="Pruebas al controlador de usuarios deber&#xED;a fallar al registar un usuario ya existente" duration="4" />
+<testCase name="Pruebas al controlador de usuarios deber&#xED;a crear el registro del usuario" duration="3" />
+<testCase name="Pruebas al controlador de usuarios deber&#xED;a eliminar el usuario registrado" duration="3" />
 </file>
 </testExecutions>

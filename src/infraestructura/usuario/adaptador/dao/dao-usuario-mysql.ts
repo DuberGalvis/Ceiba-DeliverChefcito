@@ -20,7 +20,7 @@ export class DaoUsuarioMysql implements DaoUsuario {
     );
 
     if(respuesta.length === 0){
-      throw new NotFoundException('Error de Credenciales o Usuario no existe');
+      throw new NotFoundException('Error de Credenciales o Usuario no Existe');
     }
     
     return respuesta[0];
@@ -38,13 +38,12 @@ export class DaoUsuarioMysql implements DaoUsuario {
     }
   }
 
-  async listar(): Promise<UsuarioDto[]> {
-    return this.entityManager.query(
-      'SELECT u.nombre, u.fechaCreacion FROM USUARIO u',
-    );
-  }
-
   async eliminar(nombre: string) {
+    this.entityManager.query(
+      'DELETE FROM PEDIDO p WHERE p.usuario_id = (SELECT u.id FROM USUARIO u WHERE u.nombre = $1)',
+      [nombre]
+    );
+    
     return this.entityManager.query(
       'DELETE FROM USUARIO u WHERE u.nombre = $1',
       [nombre]

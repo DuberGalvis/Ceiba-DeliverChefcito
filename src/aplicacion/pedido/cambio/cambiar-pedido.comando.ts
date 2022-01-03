@@ -7,6 +7,10 @@ import { Usuario } from 'src/dominio/usuario/modelo/usuario';
 
 
 export class ComandoCambiarPedido {
+    @IsNumber()
+    @ApiProperty({ type: Number })
+    public id: number;
+
     @IsObject()
     @ApiProperty({ type: Usuario })
     public usuario: Usuario;
