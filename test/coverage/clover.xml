@@ -1,0 +1,727 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1641310979938" clover="3.2.0">
+  <project timestamp="1641310979938" name="All files">
+    <metrics statements="421" coveredstatements="420" conditionals="40" coveredconditionals="40" methods="108" coveredmethods="107" elements="569" coveredelements="567" complexity="0" loc="421" ncloc="421" packages="40" files="60" classes="60"/>
+    <package name="src.aplicacion.pedido.cambio">
+      <metrics statements="28" coveredstatements="28" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <file name="cambiar-pedido.comando.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\pedido\cambio\cambiar-pedido.comando.ts">
+        <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+      </file>
+      <file name="cambiar-pedido.manejador.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\pedido\cambio\cambiar-pedido.manejador.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+      </file>
+      <file name="cancelar-pedido.comando.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\pedido\cambio\cancelar-pedido.comando.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+      </file>
+      <file name="cancelar-pedido.manejador.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\pedido\cambio\cancelar-pedido.manejador.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.aplicacion.pedido.comando">
+      <metrics statements="19" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="registrar-pedido.comando.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\pedido\comando\registrar-pedido.comando.ts">
+        <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+      </file>
+      <file name="registrar-pedido.manejador.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\pedido\comando\registrar-pedido.manejador.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.aplicacion.pedido.consulta">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="listar-pedido.manejador.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\pedido\consulta\listar-pedido.manejador.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.aplicacion.producto.comando">
+      <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="registrar-producto.comando.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\producto\comando\registrar-producto.comando.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+      </file>
+      <file name="registrar-producto.manejador.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\producto\comando\registrar-producto.manejador.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.aplicacion.producto.consulta">
+      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <file name="consultar-producto.manejador.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\producto\consulta\consultar-producto.manejador.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+      </file>
+      <file name="listar-producto.manejador.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\producto\consulta\listar-producto.manejador.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.aplicacion.reunion.comando">
+      <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="registrar-reunion.comando.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\reunion\comando\registrar-reunion.comando.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+      </file>
+      <file name="registrar-reunion.manejador.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\reunion\comando\registrar-reunion.manejador.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.aplicacion.reunion.consulta">
+      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <file name="consulta-reunion.manejador.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\reunion\consulta\consulta-reunion.manejador.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+      </file>
+      <file name="listar-reunion-manejador.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\reunion\consulta\listar-reunion-manejador.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.aplicacion.usuario.cambio">
+      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <file name="cambiar-usuario.manejador.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\usuario\cambio\cambiar-usuario.manejador.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+      </file>
+      <file name="eliminar-usuario.manejador.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\usuario\cambio\eliminar-usuario.manejador.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.aplicacion.usuario.comando">
+      <metrics statements="23" coveredstatements="23" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="cambiar-usuario.comando.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\usuario\comando\cambiar-usuario.comando.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+      </file>
+      <file name="consultar-usuario.comando.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\usuario\comando\consultar-usuario.comando.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+      </file>
+      <file name="registar-usuario.manejador.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\usuario\comando\registar-usuario.manejador.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+      </file>
+      <file name="registrar-usuario.comando.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\usuario\comando\registrar-usuario.comando.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.aplicacion.usuario.consulta">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="consultar-usuario.manejador.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\usuario\consulta\consultar-usuario.manejador.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.dominio.errores">
+      <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+      <file name="error-de-negocio.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\errores\error-de-negocio.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="12" type="stmt"/>
+        <line num="3" count="36" type="stmt"/>
+        <line num="4" count="36" type="cond" truecount="2" falsecount="0"/>
+      </file>
+      <file name="error-longitud-invalida.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\errores\error-longitud-invalida.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="9" type="stmt"/>
+        <line num="3" count="9" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+      </file>
+      <file name="error-valor-requerido.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\errores\error-valor-requerido.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="12" type="stmt"/>
+        <line num="3" count="12" type="stmt"/>
+        <line num="5" count="8" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.dominio.errores.pedido">
+      <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7"/>
+      <file name="error-hora-de-servicio.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\errores\pedido\error-hora-de-servicio.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+      </file>
+      <file name="error-lunes-no-festivo.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\errores\pedido\error-lunes-no-festivo.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+      </file>
+      <file name="error-no-hay-direccion.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\errores\pedido\error-no-hay-direccion.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+      </file>
+      <file name="error-no-hay-producto.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\errores\pedido\error-no-hay-producto.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+      </file>
+      <file name="error-no-hay-reunion.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\errores\pedido\error-no-hay-reunion.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+      </file>
+      <file name="error-no-hay-usuario.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\errores\pedido\error-no-hay-usuario.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+      </file>
+      <file name="error-no-hay-valortotal.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\errores\pedido\error-no-hay-valortotal.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.dominio.errores.reunion">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="error-tipo-incorrecto.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\errores\reunion\error-tipo-incorrecto.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="3" count="6" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.dominio.pedido.modelo">
+      <metrics statements="61" coveredstatements="61" conditionals="16" coveredconditionals="16" methods="16" coveredmethods="16"/>
+      <file name="pedido.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\pedido\modelo\pedido.ts">
+        <metrics statements="61" coveredstatements="61" conditionals="16" coveredconditionals="16" methods="16" coveredmethods="16"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="21" count="10" type="stmt"/>
+        <line num="22" count="10" type="stmt"/>
+        <line num="23" count="10" type="stmt"/>
+        <line num="24" count="10" type="stmt"/>
+        <line num="25" count="10" type="stmt"/>
+        <line num="26" count="10" type="stmt"/>
+        <line num="27" count="10" type="stmt"/>
+        <line num="28" count="10" type="stmt"/>
+        <line num="33" count="10" type="stmt"/>
+        <line num="34" count="9" type="stmt"/>
+        <line num="35" count="8" type="stmt"/>
+        <line num="36" count="7" type="stmt"/>
+        <line num="37" count="6" type="stmt"/>
+        <line num="38" count="5" type="stmt"/>
+        <line num="39" count="4" type="stmt"/>
+        <line num="40" count="3" type="stmt"/>
+        <line num="41" count="3" type="stmt"/>
+        <line num="42" count="3" type="stmt"/>
+        <line num="43" count="3" type="stmt"/>
+        <line num="44" count="3" type="stmt"/>
+        <line num="45" count="3" type="stmt"/>
+        <line num="46" count="3" type="stmt"/>
+        <line num="47" count="3" type="stmt"/>
+        <line num="51" count="5" type="stmt"/>
+        <line num="52" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="60" count="4" type="cond" truecount="4" falsecount="0"/>
+        <line num="61" count="1" type="stmt"/>
+        <line num="68" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="69" count="1" type="stmt"/>
+        <line num="76" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="77" count="1" type="stmt"/>
+        <line num="84" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="85" count="1" type="stmt"/>
+        <line num="92" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="93" count="1" type="stmt"/>
+        <line num="100" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="101" count="1" type="stmt"/>
+        <line num="108" count="1" type="stmt"/>
+        <line num="112" count="1" type="stmt"/>
+        <line num="116" count="1" type="stmt"/>
+        <line num="120" count="1" type="stmt"/>
+        <line num="124" count="1" type="stmt"/>
+        <line num="128" count="1" type="stmt"/>
+        <line num="132" count="1" type="stmt"/>
+        <line num="136" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.dominio.pedido.puerto.dao">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="dao-pedido.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\pedido\puerto\dao\dao-pedido.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="6" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.dominio.pedido.puerto.repositorio">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="repositorio-pedido.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\pedido\puerto\repositorio\repositorio-pedido.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.dominio.pedido.servicio">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="servicio-registrar-pedido.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\pedido\servicio\servicio-registrar-pedido.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.dominio.producto.modelo">
+      <metrics statements="22" coveredstatements="22" conditionals="6" coveredconditionals="6" methods="7" coveredmethods="7"/>
+      <file name="producto.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\producto\modelo\producto.ts">
+        <metrics statements="22" coveredstatements="22" conditionals="6" coveredconditionals="6" methods="7" coveredmethods="7"/>
+        <line num="2" count="6" type="stmt"/>
+        <line num="3" count="6" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="7" count="19" type="stmt"/>
+        <line num="8" count="19" type="stmt"/>
+        <line num="9" count="19" type="stmt"/>
+        <line num="12" count="19" type="stmt"/>
+        <line num="13" count="17" type="stmt"/>
+        <line num="14" count="16" type="stmt"/>
+        <line num="15" count="15" type="stmt"/>
+        <line num="16" count="15" type="stmt"/>
+        <line num="17" count="15" type="stmt"/>
+        <line num="21" count="19" type="cond" truecount="2" falsecount="0"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="29" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="37" count="16" type="cond" truecount="2" falsecount="0"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="45" count="6" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.dominio.producto.puerto.dao">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="dao-producto.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\producto\puerto\dao\dao-producto.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.dominio.producto.puerto.repositorio">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="repositorio-producto.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\producto\puerto\repositorio\repositorio-producto.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.dominio.producto.servicio">
+      <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <file name="servicio-registrar-producto.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\producto\servicio\servicio-registrar-producto.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="11" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.dominio.reunion.modelo">
+      <metrics statements="16" coveredstatements="16" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
+      <file name="reunion.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\reunion\modelo\reunion.ts">
+        <metrics statements="16" coveredstatements="16" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="2" count="6" type="stmt"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="7" count="17" type="stmt"/>
+        <line num="8" count="17" type="stmt"/>
+        <line num="11" count="17" type="stmt"/>
+        <line num="12" count="15" type="stmt"/>
+        <line num="13" count="14" type="stmt"/>
+        <line num="14" count="14" type="stmt"/>
+        <line num="18" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="26" count="15" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="34" count="4" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.dominio.reunion.puerto.dao">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="dao-reunion.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\reunion\puerto\dao\dao-reunion.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.dominio.reunion.puerto.repositorio">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="repositorio-reunion.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\reunion\puerto\repositorio\repositorio-reunion.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.dominio.reunion.servicio">
+      <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <file name="servicio-registrar-reunion.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\reunion\servicio\servicio-registrar-reunion.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="11" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.dominio.usuario.modelo">
+      <metrics statements="19" coveredstatements="19" conditionals="4" coveredconditionals="4" methods="6" coveredmethods="6"/>
+      <file name="usuario.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\usuario\modelo\usuario.ts">
+        <metrics statements="19" coveredstatements="19" conditionals="4" coveredconditionals="4" methods="6" coveredmethods="6"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="2" count="6" type="stmt"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="6" count="19" type="stmt"/>
+        <line num="7" count="19" type="stmt"/>
+        <line num="8" count="19" type="stmt"/>
+        <line num="11" count="19" type="stmt"/>
+        <line num="12" count="17" type="stmt"/>
+        <line num="13" count="16" type="stmt"/>
+        <line num="14" count="16" type="stmt"/>
+        <line num="15" count="16" type="stmt"/>
+        <line num="19" count="19" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="27" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="35" count="7" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.dominio.usuario.puerto.dao">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="dao-usuario.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\usuario\puerto\dao\dao-usuario.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.dominio.usuario.puerto.repositorio">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="repositorio-usuario.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\usuario\puerto\repositorio\repositorio-usuario.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.dominio.usuario.servicio">
+      <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <file name="servicio-registrar-usuario.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\usuario\servicio\servicio-registrar-usuario.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="11" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.infraestructura.configuracion">
+      <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="ceiba-logger.service.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\infraestructura\configuracion\ceiba-logger.service.ts">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.infraestructura.excepciones">
+      <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="filtro-excepciones-negocio.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\infraestructura\excepciones\filtro-excepciones-negocio.ts">
+        <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="16" count="5" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
+        <line num="19" count="5" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
+        <line num="28" count="5" type="stmt"/>
+        <line num="29" count="5" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.infraestructura.pedido.controlador">
+      <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+      <file name="pedido.controlador.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\infraestructura\pedido\controlador\pedido.controlador.ts">
+        <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.infraestructura.pedido.proveedor.servicio">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="servicio-registrar-pedido.proveedor.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\infraestructura\pedido\proveedor\servicio\servicio-registrar-pedido.proveedor.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.infraestructura.producto.controlador">
+      <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <file name="producto.controlador.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\infraestructura\producto\controlador\producto.controlador.ts">
+        <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.infraestructura.producto.proveedor.servicio">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="servicio-registrar-producto.proveedor.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\infraestructura\producto\proveedor\servicio\servicio-registrar-producto.proveedor.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.infraestructura.reunion.controlador">
+      <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <file name="reunion.controlador.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\infraestructura\reunion\controlador\reunion.controlador.ts">
+        <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.infraestructura.reunion.proveedor.servicio">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="servicio-registrar-reunion.proveedor.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\infraestructura\reunion\proveedor\servicio\servicio-registrar-reunion.proveedor.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.infraestructura.usuario.controlador">
+      <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+      <file name="usuario.controlador.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\infraestructura\usuario\controlador\usuario.controlador.ts">
+        <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.infraestructura.usuario.proveedor.servicio">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="servicio-registrar-usuario.proveedor.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\infraestructura\usuario\proveedor\servicio\servicio-registrar-usuario.proveedor.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="test.util">
+      <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <file name="create-object.stub.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\test\util\create-object.stub.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="1" count="8" type="stmt"/>
+        <line num="14" count="8" type="stmt"/>
+        <line num="16" count="15" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="8" type="stmt"/>
+        <line num="19" count="7" type="stmt"/>
+        <line num="21" count="15" type="stmt"/>
+        <line num="22" count="30" type="stmt"/>
+        <line num="23" count="15" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
