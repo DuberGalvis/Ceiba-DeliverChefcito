@@ -19,7 +19,7 @@ export class RepositorioUsuarioMysql implements RepositorioUsuario {
   async guardar(usuario: Usuario) {
     const entidad = new UsuarioEntidad();
     entidad.clave = usuario.clave;
-    entidad.fecha_creacion = new Date(usuario.fechaCreacion);
+    entidad.fechaCreacion = new Date(usuario.fechaCreacion);
     entidad.nombre = usuario.nombre;
     await this.repositorio.save(entidad);
     return usuario;

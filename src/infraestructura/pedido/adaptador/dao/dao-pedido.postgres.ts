@@ -57,16 +57,16 @@ export class DaoPedidoPostgres implements DaoPedido {
         .from(ReunionEntidad, 'reunion')
         .where('reunion.tipo = :tipo', { tipo: reunion.tipo })
         .getOne();
-        entidad.fecha_realizacion = fechaRealizacion;
+        entidad.fechaRealizacion = fechaRealizacion;
         entidad.direccion = direccion;
-        entidad.valor_total = valorTotal;
+        entidad.valorTotal = valorTotal;
         
         await this.entityManager.createQueryBuilder()
         .update(PedidoEntidad)
         .set({
           producto: entidad.producto, reunion: entidad.reunion,
-          fecha_realizacion: entidad.fecha_realizacion,
-          direccion: entidad.direccion, valor_total: entidad.valor_total
+          fechaRealizacion: entidad.fechaRealizacion,
+          direccion: entidad.direccion, valorTotal: entidad.valorTotal
         })
         .where('id = :id', { id })
         .execute();
@@ -74,11 +74,15 @@ export class DaoPedidoPostgres implements DaoPedido {
 
     async cancelarPedido({id}: ComandoCancelarPedido): Promise<string> {
 
-      const respuesta: Array<any> = await this.entityManager.query(
-        `UPDATE pedido SET estado = 'ESTADO_CANCELADO' WHERE id = $1`,
-        [id],
-      );
-      const mensaje: string = respuesta[POSICION_DOS] === EXITO ? 'Actualización Exitosa' : 'Fallo al actualizar';
+      const respuesta  = await this.entityManager.createQueryBuilder()
+        .update(PedidoEntidad)
+        .set({
+          estado: 'ESTADO_CANCELADO',
+        })
+        .where('id = :id', { id })
+        .execute();
+
+      const mensaje: string = respuesta.affected === EXITO ? 'Actualización Exitosa' : 'Fallo al actualizar';
 
       return mensaje;
 

@@ -21,8 +21,8 @@ export class PedidoEntidad {
     @JoinColumn({ name: 'reunion_id' })
     reunion: ReunionEntidad;
 
-    @Column()
-    fecha_realizacion: Date;
+    @Column({name: 'fecha_realizacion'})
+    fechaRealizacion: Date;
 
     @Column()
     estado: string;
@@ -30,9 +30,9 @@ export class PedidoEntidad {
     @Column()
     direccion: string;
 
-    @Column()
-    valor_total: number;
+    @Column({name: 'valor_total'})
+    valorTotal: number;
 
-    @Column()
-    horas_de_servicio: number;
+    @Column({name: 'horas_de_servicio'})
+    horasDeServicio: number;
 }
