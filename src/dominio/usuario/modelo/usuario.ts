@@ -1,4 +1,5 @@
 import { ErrorLongitudInvalida } from 'src/dominio/errores/error-longitud-invalida';
+import { ErrorValorRequerido } from 'src/dominio/errores/error-valor-requerido';
 
 const NUMERO_MINIMO_CARACTERES_CLAVE = 4;
 export class Usuario {
@@ -8,6 +9,7 @@ export class Usuario {
 
   constructor(nombre: string, clave: string, fechaCreacion: string) {
     this.validarTamanoClave(clave);
+    this.validarFechaCreacion(fechaCreacion);
     this.#nombre = nombre;
     this.#clave = clave;
     this.#fechaCreacion = new Date(fechaCreacion);
@@ -17,6 +19,14 @@ export class Usuario {
     if (clave.length < NUMERO_MINIMO_CARACTERES_CLAVE) {
       throw new ErrorLongitudInvalida(
         `El tamaño mínimo de la clave debe ser ${NUMERO_MINIMO_CARACTERES_CLAVE}`,
+      );
+    }
+  }
+
+  private validarFechaCreacion(fechaCreacion: string) {
+    if (fechaCreacion.length === 0) {
+      throw new ErrorValorRequerido(
+        'El valor de la fecha de creación es requerido',
       );
     }
   }

@@ -110,7 +110,13 @@ describe('Pedido', () => {
     250000,
     4);
 
+    expect(pedido.usuario).toEqual(new Usuario('juan', '1234', new Date().toISOString()));
+    expect(pedido.producto).toEqual(new Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'));
+    expect(pedido.reunion).toEqual(new Reunion( 'TIPO_GRANDE', 50000));
+    expect(pedido.fechaRealizacion.toISOString()).toEqual(new Date('2021-12-05').toISOString());
     expect(pedido.direccion).toEqual('Carrera 80 # 70');
     expect(pedido.estado).toEqual('ESTADO_ACTIVO');
+    expect(pedido.valorTotal).toEqual(250000);
+    expect(pedido.horasDeServicio).toEqual(4);
   });
 });

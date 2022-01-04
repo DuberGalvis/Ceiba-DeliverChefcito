@@ -29,5 +29,6 @@ describe('Producto', () => {
 
     expect(producto.nombre).toEqual('Alitas Picantes');
     expect(producto.detalle).toEqual('Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.');
+    expect(producto.precio).toEqual(40000);
   });
 });
