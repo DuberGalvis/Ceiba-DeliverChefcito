@@ -83,7 +83,7 @@
       "<rootDir>"
     ],
     "reporters": ["default",  ["jest-sonar", {
-      "outputDirectory": "C:/Users/duber.galvis/Documents/Ceiba-DeliverChefcito/node-nestjs-arquitectura-hexagonal/test/coverage",
+      "outputDirectory": "C:/Users/duber.galvis/Documents/Ceiba-DeliverChefcito/node-nestjs-arquitectura-hexagonal/test/unitarias",
       "outputName": "sonar-report",
       "reportedFilePath": "default"
     }]]

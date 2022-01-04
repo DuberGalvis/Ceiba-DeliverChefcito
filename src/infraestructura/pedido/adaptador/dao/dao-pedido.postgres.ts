@@ -9,7 +9,7 @@ import { UsuarioEntidad } from 'src/infraestructura/usuario/entidad/usuario.enti
 import { EntityManager } from 'typeorm';
 import { PedidoEntidad } from '../../entidad/pedido.entidad';
 
-const EXITO: number = 1;
+const EXITO = 1;
 const POSICION_DOS = 1;
 
 @Injectable()
@@ -77,7 +77,7 @@ export class DaoPedidoPostgres implements DaoPedido {
       const respuesta: Array<any> = await this.entityManager.query(
         `UPDATE pedido SET estado = 'ESTADO_CANCELADO' WHERE id = $1`,
         [id],
-      )
+      );
       const mensaje: string = respuesta[POSICION_DOS] === EXITO ? 'Actualización Exitosa' : 'Fallo al actualizar';
 
       return mensaje;
