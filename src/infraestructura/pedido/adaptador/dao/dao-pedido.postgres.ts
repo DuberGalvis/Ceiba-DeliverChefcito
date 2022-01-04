@@ -10,7 +10,6 @@ import { EntityManager } from 'typeorm';
 import { PedidoEntidad } from '../../entidad/pedido.entidad';
 
 const EXITO = 1;
-const POSICION_DOS = 1;
 
 @Injectable()
 export class DaoPedidoPostgres implements DaoPedido {
