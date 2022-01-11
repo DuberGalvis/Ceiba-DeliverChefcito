@@ -77,7 +77,7 @@
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
-    "coverageDirectory": "../node-nestjs-arquitectura-hexagonal/test/coverage",
+    "coverageDirectory": "../coverage",
     "testEnvironment": "node",
     "modulePaths": [
       "<rootDir>"
