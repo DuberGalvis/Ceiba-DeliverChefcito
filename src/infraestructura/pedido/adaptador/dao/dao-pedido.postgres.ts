@@ -3,13 +3,12 @@ import { InjectEntityManager } from '@nestjs/typeorm';
 import { ComandoCancelarPedido } from 'src/aplicacion/pedido/cambio/cancelar-pedido.comando';
 import { PedidoDto } from 'src/aplicacion/pedido/consulta/dto/pedido.dto';
 import { DaoPedido } from 'src/dominio/pedido/puerto/dao/dao-pedido';
+import { Usuario } from 'src/dominio/usuario/modelo/usuario';
 import { ProductoEntidad } from 'src/infraestructura/producto/entidad/producto.entidad';
 import { ReunionEntidad } from 'src/infraestructura/reunion/entidad/reunion.entidad';
 import { UsuarioEntidad } from 'src/infraestructura/usuario/entidad/usuario.entidad';
 import { EntityManager } from 'typeorm';
 import { PedidoEntidad } from '../../entidad/pedido.entidad';
-
-const EXITO = 1;
 
 @Injectable()
 export class DaoPedidoPostgres implements DaoPedido {
@@ -19,7 +18,7 @@ export class DaoPedidoPostgres implements DaoPedido {
     ){}
 
     async listar(nombre: string): Promise<PedidoDto[]> {
-        let usuario = await this.entityManager.createQueryBuilder()
+        const usuario = await this.entityManager.createQueryBuilder()
         .select('usuario')
         .from(UsuarioEntidad, 'usuario')
         .where('usuario.nombre = :nombre', { nombre })
@@ -72,7 +71,7 @@ export class DaoPedidoPostgres implements DaoPedido {
     }
 
     async cancelarPedido({id}: ComandoCancelarPedido): Promise<string> {
-
+      const EXITO = 1;
       const respuesta  = await this.entityManager.createQueryBuilder()
         .update(PedidoEntidad)
         .set({
