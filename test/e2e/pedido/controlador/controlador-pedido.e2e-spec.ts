@@ -126,4 +126,16 @@ describe('Pruebas al controlador de pedidos', () => {
       .expect(HttpStatus.OK)
       .expect('Cancelación Exitosa');
   });
+
+  it('debería no cancelar el pedido registrado', () => {
+
+    const noCancelaPedido: ComandoCancelarPedido = {
+      id: 20,  
+    };
+
+    return request(app.getHttpServer())
+      .patch('/pedidos/cancelar').send(noCancelaPedido)
+      .expect(HttpStatus.OK)
+      .expect('Fallo la Cancelación');
+  });
 });
