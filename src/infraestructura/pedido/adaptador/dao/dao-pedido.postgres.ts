@@ -81,7 +81,7 @@ export class DaoPedidoPostgres implements DaoPedido {
         .where('id = :id', { id })
         .execute();
 
-      const mensaje: string = respuesta.affected === EXITO ? 'Actualización Exitosa' : 'Fallo al actualizar';
+      const mensaje: string = respuesta.affected === EXITO ? 'Cancelación Exitosa' : 'Fallo la Cancelación';
 
       return mensaje;
 
