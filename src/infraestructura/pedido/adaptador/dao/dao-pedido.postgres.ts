@@ -3,7 +3,6 @@ import { InjectEntityManager } from '@nestjs/typeorm';
 import { ComandoCancelarPedido } from 'src/aplicacion/pedido/cambio/cancelar-pedido.comando';
 import { PedidoDto } from 'src/aplicacion/pedido/consulta/dto/pedido.dto';
 import { DaoPedido } from 'src/dominio/pedido/puerto/dao/dao-pedido';
-import { Usuario } from 'src/dominio/usuario/modelo/usuario';
 import { ProductoEntidad } from 'src/infraestructura/producto/entidad/producto.entidad';
 import { ReunionEntidad } from 'src/infraestructura/reunion/entidad/reunion.entidad';
 import { UsuarioEntidad } from 'src/infraestructura/usuario/entidad/usuario.entidad';
@@ -81,8 +80,7 @@ export class DaoPedidoPostgres implements DaoPedido {
         .execute();
 
       const mensaje: string = respuesta.affected === EXITO ? 'Cancelación Exitosa' : 'Fallo la Cancelación';
-
       return mensaje;
-
+      
     }
 }
