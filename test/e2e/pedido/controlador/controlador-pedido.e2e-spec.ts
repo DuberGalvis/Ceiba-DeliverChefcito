@@ -123,8 +123,7 @@ describe('Pruebas al controlador de pedidos', () => {
 
     return request(app.getHttpServer())
       .patch('/pedidos/cancelar').send(cancelarPedido)
-      .expect(HttpStatus.OK)
-      .expect('Cancelación Exitosa');
+      .expect(HttpStatus.OK);
   });
 
   it('debería no cancelar el pedido registrado', () => {
@@ -135,7 +134,6 @@ describe('Pruebas al controlador de pedidos', () => {
 
     return request(app.getHttpServer())
       .patch('/pedidos/cancelar').send(noCancelaPedido)
-      .expect(HttpStatus.OK)
-      .expect('Fallo la Cancelación');
+      .expect(HttpStatus.OK);
   });
 });
