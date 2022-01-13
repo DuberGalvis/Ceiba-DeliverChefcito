@@ -1,3 +1,4 @@
+import { ErrorValorRequerido } from 'src/dominio/errores/error-valor-requerido';
 import { ErrorHoraDeServicio } from 'src/dominio/errores/pedido/error-hora-de-servicio';
 import { ErrorLunesNoFestivo } from 'src/dominio/errores/pedido/error-lunes-no-festivo';
 import { ErrorNoHayDireccion } from 'src/dominio/errores/pedido/error-no-hay-direccion';
@@ -86,7 +87,7 @@ describe('Pedido', () => {
       250000,
       5))
       .rejects
-      .toStrictEqual(new ErrorNoHayDireccion('La direccion esta vacia, es requerido'));
+      .toStrictEqual(new ErrorValorRequerido('El campo Dirección esta vacio, es requerido'));
   });
 
   it('Pedido sin valor total deberia retornar error', () => {
@@ -98,7 +99,31 @@ describe('Pedido', () => {
       undefined,
       5))
       .rejects
-      .toStrictEqual(new ErrorNoHayValorTotal('El valor total esta vacio, es requerido'));
+      .toStrictEqual(new ErrorValorRequerido('El campo Valor Total esta vacio, es requerido'));
+  });
+
+  it('Pedido sin horas de servicio deberia retornar error', () => {
+    return expect(async () => new _Pedido( new _Usuario('juan', '1234', new Date().toISOString()),
+      new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
+      new _Reunion('TIPO_GRANDE', 50000), 
+      '2021-12-06',
+      'Carrera 80 # 70',
+      250000,
+      undefined))
+      .rejects
+      .toStrictEqual(new ErrorValorRequerido('El campo Horas de Servicio esta vacio, es requerido'));
+  });
+
+  it('Pedido sin fecha de realizacion deberia retornar error', () => {
+    return expect(async () => new _Pedido( new _Usuario('juan', '1234', new Date().toISOString()),
+      new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
+      new _Reunion('TIPO_GRANDE', 50000),
+      undefined, 
+      'Carrera 80 # 70',
+      90000,
+      5))
+      .rejects
+      .toStrictEqual(new ErrorValorRequerido('El campo Fecha Realización esta vacio, es requerido'));
   });
 
   it('producto con todas las validaciones ok debería crear bien', () => {

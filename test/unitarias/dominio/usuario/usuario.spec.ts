@@ -15,7 +15,13 @@ describe('Usuario', () => {
   it('usuario sin fecha de creacion deberia retornar error', () => {
     return expect(async () => new _Usuario('juan', '1234', ''))
       .rejects
-      .toStrictEqual(new ErrorValorRequerido('El valor de la fecha de creación es requerido'));
+      .toStrictEqual(new ErrorValorRequerido('El campo Fecha de Creación esta vacio, es requerido'));
+  });
+
+  it('usuario sin nombre deberia retornar error', () => {
+    return expect(async () => new _Usuario('', '1234', new Date().toISOString()))
+      .rejects
+      .toStrictEqual(new ErrorValorRequerido('El campo Nombre esta vacio, es requerido'));
   });
 
   it('usuario con clave igual a 4 y valor fecha debería crear bien', () => {

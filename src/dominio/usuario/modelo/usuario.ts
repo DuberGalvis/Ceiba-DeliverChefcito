@@ -8,14 +8,18 @@ export class Usuario {
   readonly #fechaCreacion: Date;
 
   constructor(nombre: string, clave: string, fechaCreacion: string) {
+    this.validarCampo(nombre, 'Nombre');
+    this.validarCampo(fechaCreacion, 'Fecha de Creación');
     this.validarTamanoClave(clave);
-    this.validarFechaCreacion(fechaCreacion);
     this.#nombre = nombre;
     this.#clave = clave;
     this.#fechaCreacion = new Date(fechaCreacion);
   }
 
   private validarTamanoClave(clave: string) {
+
+    this.validarCampo(clave, 'Clave');
+
     if (clave.length < NUMERO_MINIMO_CARACTERES_CLAVE) {
       throw new ErrorLongitudInvalida(
         `El tamaño mínimo de la clave debe ser ${NUMERO_MINIMO_CARACTERES_CLAVE}`,
@@ -23,10 +27,10 @@ export class Usuario {
     }
   }
 
-  private validarFechaCreacion(fechaCreacion: string) {
-    if (fechaCreacion.length === 0) {
+  private validarCampo(campoAValidar: string, nombreCampo: string){
+    if(!campoAValidar){
       throw new ErrorValorRequerido(
-        'El valor de la fecha de creación es requerido',
+      `El campo ${nombreCampo} esta vacio, es requerido`,
       );
     }
   }

@@ -4,7 +4,6 @@ import { RepositorioReunion } from 'src/dominio/reunion/puerto/repositorio/repos
 import { SinonStubbedInstance } from 'sinon';
 import { createStubObj } from '../../../util/create-object.stub';
 
-
 describe('ServicioRegistrarReunion', () => {
 
   let servicioRegistrarReunion: ServicioRegistrarReunion;

@@ -1,22 +1,16 @@
 import { ManejadorConsultarDiaFestivo } from 'src/aplicacion/api/consulta/consultar-dia-festivo.manejador';
+import { ErrorValorRequerido } from 'src/dominio/errores/error-valor-requerido';
 import { ErrorHoraDeServicio } from 'src/dominio/errores/pedido/error-hora-de-servicio';
 import { ErrorLunesNoFestivo } from 'src/dominio/errores/pedido/error-lunes-no-festivo';
-import { ErrorNoHayDireccion } from 'src/dominio/errores/pedido/error-no-hay-direccion';
 import { ErrorNoHayProducto } from 'src/dominio/errores/pedido/error-no-hay-producto';
 import { ErrorNoHayReunion } from 'src/dominio/errores/pedido/error-no-hay-reunion';
 import { ErrorNoHayUsuario } from 'src/dominio/errores/pedido/error-no-hay-usuario';
-import { ErrorNoHayValorTotal } from 'src/dominio/errores/pedido/error-no-hay-valortotal';
 import { Producto } from 'src/dominio/producto/modelo/producto';
 import { Reunion } from 'src/dominio/reunion/modelo/reunion';
 import { Usuario } from 'src/dominio/usuario/modelo/usuario';
 
 const ESTADO_ACTIVO = 'ESTADO_ACTIVO';
-const ESTADO_CANCELADO = 'ESTADO_CANCELADO';
-const ESTADO_FINALIZADO = 'ESTADO_FINALIZADO';
-const LUNES = 1;
-const HORARIO_MAXIMO = 8;
-const HORARIO_MINIMO = 4;
-const UNO = 1;
+
 export class Pedido {
   readonly #usuario: Usuario;
   readonly #producto: Producto;
@@ -33,8 +27,8 @@ export class Pedido {
     this.validarHayUsuario(usuario);
     this.validarHayProducto(producto);
     this.validarHayReunion(reunion);
-    this.validarHayDireccion(direccion);
-    this.validarHayValorTotal(valorTotal);
+    this.validarExisteDato(direccion, 'Dirección');
+    this.validarExisteValor(valorTotal, 'Valor Total');
     this.validarLunesNoFestivo(fechaRealizacion);
     this.validarHoraDeServicio(horasDeServicio);
     this.#usuario = usuario;
@@ -47,7 +41,29 @@ export class Pedido {
     this.#horasDeServicio = horasDeServicio;
   }
 
+  private validarExisteDato(datoAValidar: string, nombreCampo: string){
+
+    if(!datoAValidar){
+      throw new ErrorValorRequerido(
+        `El campo ${nombreCampo} esta vacio, es requerido`
+      );
+    }
+  }
+
+  private validarExisteValor(valorAVerificar: number, nombreCampo: string){
+
+    if(isNaN(valorAVerificar)){
+      throw new ErrorValorRequerido(
+        `El campo ${nombreCampo} esta vacio, es requerido`
+      );
+    }
+  }
+
   private validarLunesNoFestivo(fechaRealizacion: string) {
+    const LUNES = 1;
+    
+    this.validarExisteDato(fechaRealizacion, 'Fecha Realización');
+
     let dia = new Date(fechaRealizacion).getDay();
     if (dia === LUNES) {
       throw new ErrorLunesNoFestivo(
@@ -57,9 +73,14 @@ export class Pedido {
   }
 
   private validarHoraDeServicio(horasDeServicio: number) {
-    if (horasDeServicio > HORARIO_MAXIMO || horasDeServicio < HORARIO_MINIMO) {
+    const OCHO = 8;
+    const CUATRO = 4;
+
+    this.validarExisteValor(horasDeServicio, 'Horas de Servicio');
+
+    if (horasDeServicio > OCHO || horasDeServicio < CUATRO) {
       throw new ErrorHoraDeServicio(
-        `No se puede sobrepasar las ${HORARIO_MAXIMO} horas o ser menos a ${HORARIO_MINIMO} horas`,
+        `No se puede sobrepasar las ${OCHO} horas o ser menos a ${CUATRO} horas`,
       );
     }
   }
@@ -84,22 +105,6 @@ export class Pedido {
     if(!reunion){
       throw new ErrorNoHayReunion(
         'La Reunion esta vacia, es requerido'
-      );
-    }
-  }
-
-  private validarHayDireccion(direccion: string){
-    if(!direccion){
-      throw new ErrorNoHayDireccion(
-        'La direccion esta vacia, es requerido'
-      );
-    }
-  }
-
-  private validarHayValorTotal(valorTotal: number){
-    if(!valorTotal){
-      throw new ErrorNoHayValorTotal(
-        'El valor total esta vacio, es requerido'
       );
     }
   }

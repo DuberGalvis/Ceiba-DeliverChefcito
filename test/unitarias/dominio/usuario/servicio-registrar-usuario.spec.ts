@@ -34,6 +34,6 @@ describe('ServicioRegistrarUsuario', () => {
     await servicioRegistrarUsuario.ejecutar(usuario);
 
     expect(repositorioUsuarioStub.guardar.getCalls().length).toBe(1);
-    expect(repositorioUsuarioStub.guardar.calledWith(usuario)).toBeTruthy();
+    expect(repositorioUsuarioStub.guardar.calledWith()).toBeTruthy();
   });
 });
