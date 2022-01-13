@@ -1,4 +1,5 @@
 import { ErrorValorRequerido } from 'src/dominio/errores/error-valor-requerido';
+import { ErrorFechaNoValida } from 'src/dominio/errores/pedido/error-fecha-no-valida';
 import { ErrorHoraDeServicio } from 'src/dominio/errores/pedido/error-hora-de-servicio';
 import { ErrorLunesNoFestivo } from 'src/dominio/errores/pedido/error-lunes-no-festivo';
 import { ErrorNoHayProducto } from 'src/dominio/errores/pedido/error-no-hay-producto';
@@ -10,29 +11,43 @@ import { Reunion } from 'src/dominio/reunion/modelo/reunion';
 import { Usuario } from 'src/dominio/usuario/modelo/usuario';
 
 describe('Pedido', () => {
-
+  
+  const LUNES = 1;
   const _Pedido = Pedido as any;
   const _Usuario = Usuario as any;
   const _Producto = Producto as any;
-  const _Reunion = Reunion as any;  
+  const _Reunion = Reunion as any;
+  let fechaPedido = new Date(); 
+  
+  beforeEach(() => {
+    fechaPedido = new Date(); 
+    fechaPedido.setDate(fechaPedido.getDate() + 1);
+
+    if(fechaPedido.getDay() === LUNES){
+      fechaPedido.setDate(fechaPedido.getDate() + 1);
+    }
+  });
 
   it('Pedido con fecha de lunes debería retornar error', () => {
+    const DIA8 = 8;
+    const DIA = fechaPedido.getDay();
+    fechaPedido.setDate(fechaPedido.getDate() + (DIA8 - DIA));
     return expect(async () => new _Pedido( new _Usuario('juan', '1234', new Date().toISOString()),
       new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
       new _Reunion('TIPO_GRANDE', 50000), 
-      '2021-12-13T21:56:24.194Z',
+      fechaPedido.toISOString(),
       'Carrera 80 # 70',
       250000,
       5))
       .rejects
-      .toStrictEqual(new ErrorLunesNoFestivo('No se puede agendar pedido para este día'));
+      .toStrictEqual(new ErrorLunesNoFestivo('No se puede agendar pedido para los Lunes'));
   });
 
   it('Pedido con horario que pasa el maximo de horas debería retornar error', () => {
     return expect(async () => new _Pedido( new _Usuario('juan', '1234', new Date().toISOString()),
       new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
       new _Reunion('TIPO_GRANDE', 50000), 
-      '2021-12-05',
+      fechaPedido.toISOString(),
       'Carrera 80 # 70',
       250000,
       9))
@@ -44,7 +59,7 @@ describe('Pedido', () => {
     return expect(async () => new _Pedido( undefined,
       new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
       new _Reunion('TIPO_GRANDE', 50000), 
-      '2021-12-06',
+      fechaPedido.toISOString(),
       'Carrera 80 # 70',
       250000,
       5))
@@ -56,7 +71,7 @@ describe('Pedido', () => {
     return expect(async () => new _Pedido( new _Usuario('juan', '1234', new Date().toISOString()),
       undefined,
       new _Reunion('TIPO_GRANDE', 50000), 
-      '2021-12-06',
+      fechaPedido.toISOString(),
       'Carrera 80 # 70',
       250000,
       5))
@@ -68,7 +83,7 @@ describe('Pedido', () => {
     return expect(async () => new _Pedido( new _Usuario('juan', '1234', new Date().toISOString()),
       new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
       undefined, 
-      '2021-12-06',
+      fechaPedido.toISOString(),
       'Carrera 80 # 70',
       250000,
       5))
@@ -80,7 +95,7 @@ describe('Pedido', () => {
     return expect(async () => new _Pedido( new _Usuario('juan', '1234', new Date().toISOString()),
       new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
       new _Reunion('TIPO_GRANDE', 50000), 
-      '2021-12-06',
+      fechaPedido.toISOString(),
       undefined,
       250000,
       5))
@@ -92,7 +107,7 @@ describe('Pedido', () => {
     return expect(async () => new _Pedido( new _Usuario('juan', '1234', new Date().toISOString()),
       new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
       new _Reunion('TIPO_GRANDE', 50000), 
-      '2021-12-06',
+      fechaPedido.toISOString(),
       'Carrera 80 # 70',
       undefined,
       5))
@@ -104,7 +119,7 @@ describe('Pedido', () => {
     return expect(async () => new _Pedido( new _Usuario('juan', '1234', new Date().toISOString()),
       new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
       new _Reunion('TIPO_GRANDE', 50000), 
-      '2021-12-06',
+      fechaPedido.toISOString(),
       'Carrera 80 # 70',
       250000,
       undefined))
@@ -124,11 +139,23 @@ describe('Pedido', () => {
       .toStrictEqual(new ErrorValorRequerido('El campo Fecha Realización esta vacio, es requerido'));
   });
 
+  it('Pedido con fecha actual o menor deberia retornar error', () => {
+    return expect(async () => new _Pedido( new _Usuario('juan', '1234', new Date().toISOString()),
+      new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
+      new _Reunion('TIPO_GRANDE', 50000),
+      new Date().toISOString(), 
+      'Carrera 80 # 70',
+      90000,
+      5))
+      .rejects
+      .toStrictEqual(new ErrorFechaNoValida('La fecha del pedido debe ser mayor a la fecha actual'));
+  });
+
   it('producto con todas las validaciones ok debería crear bien', () => {
     const pedido = new _Pedido( new _Usuario('juan', '1234', new Date().toISOString()),
     new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
     new _Reunion('TIPO_GRANDE', 50000), 
-    '2021-12-05',
+    fechaPedido.toISOString(),
     'Carrera 80 # 70',
     250000,
     4);
@@ -136,7 +163,7 @@ describe('Pedido', () => {
     expect(pedido.usuario).toEqual(new Usuario('juan', '1234', new Date().toISOString()));
     expect(pedido.producto).toEqual(new Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'));
     expect(pedido.reunion).toEqual(new Reunion( 'TIPO_GRANDE', 50000));
-    expect(pedido.fechaRealizacion.toISOString()).toEqual(new Date('2021-12-05').toISOString());
+    expect(pedido.fechaRealizacion.toISOString()).toEqual(fechaPedido.toISOString());
     expect(pedido.direccion).toEqual('Carrera 80 # 70');
     expect(pedido.estado).toEqual('ESTADO_ACTIVO');
     expect(pedido.valorTotal).toEqual(250000);

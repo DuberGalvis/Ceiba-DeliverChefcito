@@ -8,6 +8,7 @@ import { ErrorNoHayUsuario } from 'src/dominio/errores/pedido/error-no-hay-usuar
 import { Producto } from 'src/dominio/producto/modelo/producto';
 import { Reunion } from 'src/dominio/reunion/modelo/reunion';
 import { Usuario } from 'src/dominio/usuario/modelo/usuario';
+import { ErrorFechaNoValida } from 'src/dominio/errores/pedido/error-fecha-no-valida';
 
 const ESTADO_ACTIVO = 'ESTADO_ACTIVO';
 
@@ -22,13 +23,14 @@ export class Pedido {
   readonly #horasDeServicio: number;
   private readonly _manejadorConsultarDiaFestivo: ManejadorConsultarDiaFestivo;
 
-
   constructor(usuario: Usuario, producto: Producto, reunion: Reunion, fechaRealizacion: string, direccion: string, valorTotal: number, horasDeServicio: number) {
     this.validarHayUsuario(usuario);
     this.validarHayProducto(producto);
     this.validarHayReunion(reunion);
     this.validarExisteDato(direccion, 'Dirección');
     this.validarExisteValor(valorTotal, 'Valor Total');
+    this.validarExisteDato(fechaRealizacion, 'Fecha Realización');
+    this.validarEsDiaSiguiente(fechaRealizacion);
     this.validarLunesNoFestivo(fechaRealizacion);
     this.validarHoraDeServicio(horasDeServicio);
     this.#usuario = usuario;
@@ -59,15 +61,24 @@ export class Pedido {
     }
   }
 
+  private validarEsDiaSiguiente(fechaAValidar: string){
+    const fechaHoy = (new Date()).setHours(0,0,0,0);
+    const fechaPedido = (new Date(fechaAValidar)).setHours(0,0,0,0);
+
+    if(fechaPedido <= fechaHoy){
+      throw new ErrorFechaNoValida( 
+        'La fecha del pedido debe ser mayor a la fecha actual',
+      );
+    }
+  }
+
   private validarLunesNoFestivo(fechaRealizacion: string) {
     const LUNES = 1;
-    
-    this.validarExisteDato(fechaRealizacion, 'Fecha Realización');
 
     let dia = new Date(fechaRealizacion).getDay();
     if (dia === LUNES) {
       throw new ErrorLunesNoFestivo(
-        'No se puede agendar pedido para este día',
+        'No se puede agendar pedido para los Lunes',
       );
     }
   }

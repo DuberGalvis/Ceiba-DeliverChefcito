@@ -11,6 +11,13 @@ describe('ServicioRegistrarPedido', () => {
 
     let servicioRegistrarPedido: ServicioRegistrarPedido;
     let repositorioPedidoStub: SinonStubbedInstance<RepositorioPedido>;
+    const fechaPedido = new Date(); 
+    
+    fechaPedido.setDate(fechaPedido.getDate() + 1);
+
+    if(fechaPedido.getDay() === 1){
+        fechaPedido.setDate(fechaPedido.getDate() + 1);
+    }
 
     beforeEach(() => {
 
@@ -23,7 +30,7 @@ describe('ServicioRegistrarPedido', () => {
             new Usuario('juan', '1234', new Date().toISOString()),
             new Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
             new Reunion('TIPO_GRANDE', 50000), 
-            '2021-12-05',
+            fechaPedido.toISOString(),
             'Carrera 80 # 70',
             250000,
             8

@@ -31,11 +31,19 @@ describe('Pruebas al controlador de pedidos', () => {
   let app: INestApplication;
   let repositorioPedido: SinonStubbedInstance<RepositorioPedido>;
   let daoPedido: SinonStubbedInstance<DaoPedido>;
+  let fechaPedido = new Date();
 
   /**
    * No Inyectar los módulos completos (Se trae TypeORM y genera lentitud al levantar la prueba, traer una por una las dependencias)
    **/
   beforeAll(async () => {
+    fechaPedido = new Date(); 
+    fechaPedido.setDate(fechaPedido.getDate() + 1);
+
+    if(fechaPedido.getDay() === 1){
+      fechaPedido.setDate(fechaPedido.getDate() + 1);
+    }
+
     repositorioPedido = createStubObj<RepositorioPedido>(['guardar'], sinonSandbox);
     daoPedido = createStubObj<DaoPedido>(['listar', 'cambiarPedido', 'cancelarPedido'], sinonSandbox);
     const moduleRef = await Test.createTestingModule({
@@ -87,7 +95,7 @@ describe('Pruebas al controlador de pedidos', () => {
       usuario: new Usuario('juan', '1234', new Date().toISOString()),
       producto: new Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
       reunion: new Reunion('TIPO_GRANDE', 50000),
-      fechaRealizacion: '2021-12-07T21:56:24.194Z',
+      fechaRealizacion: fechaPedido.toISOString(),
       direccion: 'Carrera 80 # 70',
       valorTotal: 90000,
       horasDeServicio: 7,  
@@ -104,7 +112,7 @@ describe('Pruebas al controlador de pedidos', () => {
       usuario: new Usuario('juan', '1234', new Date().toISOString()),
       producto: new Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
       reunion: new Reunion('TIPO_GRANDE', 50000),
-      fechaRealizacion: '2021-12-07T21:56:24.194Z',
+      fechaRealizacion: fechaPedido.toISOString(),
       direccion: 'Carrera 80 # 70',
       valorTotal: 90000,
       horasDeServicio: 7,  
