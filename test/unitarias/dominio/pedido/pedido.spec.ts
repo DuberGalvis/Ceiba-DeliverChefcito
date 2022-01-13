@@ -1,11 +1,9 @@
 import { ErrorValorRequerido } from 'src/dominio/errores/error-valor-requerido';
 import { ErrorHoraDeServicio } from 'src/dominio/errores/pedido/error-hora-de-servicio';
 import { ErrorLunesNoFestivo } from 'src/dominio/errores/pedido/error-lunes-no-festivo';
-import { ErrorNoHayDireccion } from 'src/dominio/errores/pedido/error-no-hay-direccion';
 import { ErrorNoHayProducto } from 'src/dominio/errores/pedido/error-no-hay-producto';
 import { ErrorNoHayReunion } from 'src/dominio/errores/pedido/error-no-hay-reunion';
 import { ErrorNoHayUsuario } from 'src/dominio/errores/pedido/error-no-hay-usuario';
-import { ErrorNoHayValorTotal } from 'src/dominio/errores/pedido/error-no-hay-valortotal';
 import { Pedido } from 'src/dominio/pedido/modelo/pedido';
 import { Producto } from 'src/dominio/producto/modelo/producto';
 import { Reunion } from 'src/dominio/reunion/modelo/reunion';

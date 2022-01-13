@@ -24,7 +24,7 @@ describe('Usuario', () => {
       .toStrictEqual(new ErrorValorRequerido('El campo Nombre esta vacio, es requerido'));
   });
 
-  it('usuario con clave igual a 4 y valor fecha debería crear bien', () => {
+  it('usuario con todos los datos correctos debería crear bien', () => {
     const usuario = new _Usuario('juan', '4123', new Date().toISOString());
 
     expect(usuario.nombre).toEqual('juan');
