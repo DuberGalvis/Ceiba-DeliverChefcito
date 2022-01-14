@@ -7,6 +7,6 @@ export class ManejadorConsultarDiaFestivo {
     constructor(private _daoDiaFestivo: DaoDiaFestivo) {}
 
     async ejecutar(esFestivo: DiaFestivoDto): Promise<Array<string>>{
-        return this._daoDiaFestivo.validarEsDiaFestivo(esFestivo);
+        return this._daoDiaFestivo.consultarApiFestivo(esFestivo);
     }
 }

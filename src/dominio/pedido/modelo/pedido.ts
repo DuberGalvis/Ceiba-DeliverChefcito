@@ -1,4 +1,3 @@
-import { ManejadorConsultarDiaFestivo } from 'src/aplicacion/api/consulta/consultar-dia-festivo.manejador';
 import { ErrorValorRequerido } from 'src/dominio/errores/error-valor-requerido';
 import { ErrorHoraDeServicio } from 'src/dominio/errores/pedido/error-hora-de-servicio';
 import { ErrorLunesNoFestivo } from 'src/dominio/errores/pedido/error-lunes-no-festivo';
@@ -9,6 +8,9 @@ import { Producto } from 'src/dominio/producto/modelo/producto';
 import { Reunion } from 'src/dominio/reunion/modelo/reunion';
 import { Usuario } from 'src/dominio/usuario/modelo/usuario';
 import { ErrorFechaNoValida } from 'src/dominio/errores/pedido/error-fecha-no-valida';
+import { DiaFestivoDto } from 'src/aplicacion/api/consulta/dto/dia-festivo.dto';
+import { HttpService } from '@nestjs/common';
+import { DaoDiaFestivoApi } from 'src/infraestructura/configuracion/api/adaptador/dao-dia-festivo.api';
 
 const ESTADO_ACTIVO = 'ESTADO_ACTIVO';
 
@@ -21,25 +23,26 @@ export class Pedido {
   readonly #direccion: string;
   readonly #valorTotal: number;
   readonly #horasDeServicio: number;
-  private readonly _manejadorConsultarDiaFestivo: ManejadorConsultarDiaFestivo;
+  readonly #esFestivo: Promise<boolean>;
 
   constructor(usuario: Usuario, producto: Producto, reunion: Reunion, fechaRealizacion: string, direccion: string, valorTotal: number, horasDeServicio: number) {
+    this.#esFestivo = this.validarEsFestivo(fechaRealizacion);
     this.validarHayUsuario(usuario);
     this.validarHayProducto(producto);
     this.validarHayReunion(reunion);
     this.validarExisteDato(direccion, 'Dirección');
     this.validarExisteValor(valorTotal, 'Valor Total');
     this.validarExisteDato(fechaRealizacion, 'Fecha Realización');
+    this.validarHoraDeServicio(horasDeServicio);
     this.validarEsDiaSiguiente(fechaRealizacion);
     this.validarLunesNoFestivo(fechaRealizacion);
-    this.validarHoraDeServicio(horasDeServicio);
     this.#usuario = usuario;
     this.#producto = producto;
     this.#reunion = reunion;
     this.#fechaRealizacion = new Date(fechaRealizacion);
     this.#estado = ESTADO_ACTIVO;
     this.#direccion = direccion;
-    this.#valorTotal = valorTotal;
+    this.#valorTotal = this.validarCobroDoble(valorTotal, producto, reunion);
     this.#horasDeServicio = horasDeServicio;
   }
 
@@ -61,6 +64,31 @@ export class Pedido {
     }
   }
 
+  private async validarEsFestivo(fechaAValidar: string): Promise<boolean>{
+    const COLOMBIA = 'CO';
+    const UNO = 1;
+    let respuesta: string[] = [];
+    const fechaFestivo: DiaFestivoDto = {
+      country: '',
+      year: 0,
+      day: 0,
+      month: 0,
+    };
+
+    fechaFestivo.country = COLOMBIA;
+    fechaFestivo.year = new Date(fechaAValidar).getFullYear();
+    fechaFestivo.day = new Date(fechaAValidar).getDate();
+    fechaFestivo.month = new Date(fechaAValidar).getMonth() + UNO;
+
+    respuesta = await this.irConsultarFestivo(fechaFestivo);
+
+    if(respuesta.length > 0){
+      return true;
+    }
+
+     return false;
+  }
+
   private validarEsDiaSiguiente(fechaAValidar: string){
     const fechaHoy = (new Date()).setHours(0,0,0,0);
     const fechaPedido = (new Date(fechaAValidar)).setHours(0,0,0,0);
@@ -76,6 +104,7 @@ export class Pedido {
     const LUNES = 1;
 
     let dia = new Date(fechaRealizacion).getDay();
+
     if (dia === LUNES) {
       throw new ErrorLunesNoFestivo(
         'No se puede agendar pedido para los Lunes',
@@ -118,6 +147,30 @@ export class Pedido {
         'La Reunion esta vacia, es requerido'
       );
     }
+  }
+
+  private validarCobroDoble(valorTotal: number,producto: Producto, reunion: Reunion): number {
+    let esCobroDoble = false;
+
+    this.#esFestivo
+    .then((respuesa) => {
+      esCobroDoble = respuesa 
+      return esCobroDoble;});
+
+    if(esCobroDoble){
+      return (producto.precio + reunion.precio) * 2;
+    }
+    
+    return valorTotal;
+  }
+
+  private async irConsultarFestivo(fechaFestivo: DiaFestivoDto): Promise<string[]>{
+    let httpService = new HttpService;
+    const daoDiaFestivo = new DaoDiaFestivoApi(httpService);
+
+    return daoDiaFestivo.consultarApiFestivo(fechaFestivo)
+    .then((fechaResuelta: string[]) => fechaResuelta)
+    .catch(() => []); 
   }
 
   get usuario(): Usuario {

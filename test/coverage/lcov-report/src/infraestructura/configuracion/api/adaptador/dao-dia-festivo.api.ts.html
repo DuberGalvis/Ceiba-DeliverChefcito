@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/aplicacion/usuario/comando/cambiar-usuario.comando.ts</title>
+    <title>Code coverage report for src/infraestructura/configuracion/api/adaptador/dao-dia-festivo.api.ts</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../../../prettify.css" />
-    <link rel="stylesheet" href="../../../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.png" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../../../sort-arrow-sprite.png);
+            background-image: url(../../../../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../../index.html">All files</a> / <a href="index.html">src/aplicacion/usuario/comando</a> cambiar-usuario.comando.ts</h1>
+        <h1><a href="../../../../../index.html">All files</a> / <a href="index.html">src/infraestructura/configuracion/api/adaptador</a> dao-dia-festivo.api.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>6/7</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>4/5</span>
             </div>
         
             
@@ -73,37 +73,40 @@
 <a name='L14'></a><a href='#L14'>14</a>
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
-<a name='L17'></a><a href='#L17'>17</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { ApiProperty } from '@nestjs/swagger';
-import { IsString } from 'class-validator';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { HttpService, Injectable } from '@nestjs/common';
 &nbsp;
-export class ComandoCambiarUsuario {
-    @IsString()
-    @ApiProperty({ example: 'William'})
-    public nombre: string;
+import { DiaFestivoDto } from 'src/aplicacion/api/consulta/dto/dia-festivo.dto';
+import { DaoDiaFestivo } from 'src/dominio/pedido/puerto/dao/dao-dia-festivo';
 &nbsp;
-    @IsString()
-    @ApiProperty({ minLength: 4, example: '1235' })
-    public claveActual: string;
+@Injectable()
+export class DaoDiaFestivoApi implements DaoDiaFestivo {
+    constructor(private readonly httpService: HttpService) {}
+    
+    async consultarApiFestivo({country, year, day, month}: DiaFestivoDto): Promise&lt;Array&lt;string&gt;&gt; {
+        const esDiaFestivo = await this.httpService.get(
+            `${process.env.API_CALENDARIO_FESTIVO}/holidays?api_key=${process.env.API_KEY}&amp;country=${country}&amp;year=${year}&amp;day=${day}&amp;month=${month}`)
+            .toPromise();
 &nbsp;
-    @IsString()
-    @ApiProperty({ minLength: 4, example: '1234' })
-    public claveNueva: string;
+<span class="cstat-no" title="statement not covered" >        return Array.from(esDiaFestivo.data.response.holidays);</span>
+    }
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -115,14 +118,14 @@ export class ComandoCambiarUsuario {
                 at Fri Jan 14 2022 12:27:49 GMT-0500 (Colombia Standard Time)
             </div>
         </div>
-        <script src="../../../../prettify.js"></script>
+        <script src="../../../../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../../../sorter.js"></script>
-        <script src="../../../../block-navigation.js"></script>
+        <script src="../../../../../sorter.js"></script>
+        <script src="../../../../../block-navigation.js"></script>
     </body>
 </html>
     
