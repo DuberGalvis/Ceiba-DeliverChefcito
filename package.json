@@ -32,6 +32,7 @@
     "class-transformer": "^0.2.3",
     "class-validator": "^0.12.2",
     "cross-env": "^7.0.2",
+    "jest-sonar": "^0.2.12",
     "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.0",
@@ -57,7 +58,6 @@
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.20.1",
     "jest": "^25.1.0",
-    "jest-sonar": "^0.2.12",
     "prettier": "^1.19.1",
     "supertest": "^4.0.2",
     "ts-jest": "25.2.1",
@@ -82,10 +82,16 @@
     "modulePaths": [
       "<rootDir>"
     ],
-    "reporters": ["default",  ["jest-sonar", {
-      "outputDirectory": "test/unitarias",
-      "outputName": "sonar-report",
-      "reportedFilePath": "default"
-    }]]
+    "reporters": [
+      "default",
+      [
+        "jest-sonar",
+        {
+          "outputDirectory": "test/unitarias",
+          "outputName": "sonar-report",
+          "reportedFilePath": "default"
+        }
+      ]
+    ]
   }
 }

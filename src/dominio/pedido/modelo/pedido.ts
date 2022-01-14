@@ -23,10 +23,8 @@ export class Pedido {
   readonly #direccion: string;
   readonly #valorTotal: number;
   readonly #horasDeServicio: number;
-  readonly #esFestivo: Promise<boolean>;
 
   constructor(usuario: Usuario, producto: Producto, reunion: Reunion, fechaRealizacion: string, direccion: string, valorTotal: number, horasDeServicio: number) {
-    this.#esFestivo = this.validarEsFestivo(fechaRealizacion);
     this.validarHayUsuario(usuario);
     this.validarHayProducto(producto);
     this.validarHayReunion(reunion);
@@ -42,7 +40,7 @@ export class Pedido {
     this.#fechaRealizacion = new Date(fechaRealizacion);
     this.#estado = ESTADO_ACTIVO;
     this.#direccion = direccion;
-    this.#valorTotal = this.validarCobroDoble(valorTotal, producto, reunion);
+    this.#valorTotal = this.validarCobroDoble(valorTotal, producto, reunion, fechaRealizacion);
     this.#horasDeServicio = horasDeServicio;
   }
 
@@ -149,16 +147,17 @@ export class Pedido {
     }
   }
 
-  private validarCobroDoble(valorTotal: number,producto: Producto, reunion: Reunion): number {
+  private validarCobroDoble(valorTotal: number,producto: Producto, reunion: Reunion, fehaPedido: string): number {
     let esCobroDoble = false;
+    const DOBLE = 2;
+    let respuestaFestivo = this.validarEsFestivo(fehaPedido);
 
-    this.#esFestivo
-    .then((respuesa) => {
-      esCobroDoble = respuesa 
-      return esCobroDoble;});
+    respuestaFestivo
+    .then((respuesta: boolean) => {esCobroDoble = respuesta;})
+    .catch(() => {esCobroDoble = false;});
 
     if(esCobroDoble){
-      return (producto.precio + reunion.precio) * 2;
+      return (producto.precio + reunion.precio) * DOBLE;
     }
     
     return valorTotal;
