@@ -8,9 +8,6 @@ import { Producto } from 'src/dominio/producto/modelo/producto';
 import { Reunion } from 'src/dominio/reunion/modelo/reunion';
 import { Usuario } from 'src/dominio/usuario/modelo/usuario';
 import { ErrorFechaNoValida } from 'src/dominio/errores/pedido/error-fecha-no-valida';
-import { DiaFestivoDto } from 'src/aplicacion/api/consulta/dto/dia-festivo.dto';
-import { HttpService } from '@nestjs/common';
-import { DaoDiaFestivoApi } from 'src/infraestructura/configuracion/api/adaptador/dao-dia-festivo.api';
 
 const ESTADO_ACTIVO = 'ESTADO_ACTIVO';
 
@@ -40,8 +37,8 @@ export class Pedido {
     this.#fechaRealizacion = new Date(fechaRealizacion);
     this.#estado = ESTADO_ACTIVO;
     this.#direccion = direccion;
-    this.#valorTotal = this.validarCobroDoble(valorTotal, producto, reunion, fechaRealizacion);
     this.#horasDeServicio = horasDeServicio;
+    this.#valorTotal = valorTotal;
   }
 
   private validarExisteDato(datoAValidar: string, nombreCampo: string){
@@ -60,31 +57,6 @@ export class Pedido {
         `El campo ${nombreCampo} esta vacio, es requerido`
       );
     }
-  }
-
-  private async validarEsFestivo(fechaAValidar: string): Promise<boolean>{
-    const COLOMBIA = 'CO';
-    const UNO = 1;
-    let respuesta: string[] = [];
-    const fechaFestivo: DiaFestivoDto = {
-      country: '',
-      year: 0,
-      day: 0,
-      month: 0,
-    };
-
-    fechaFestivo.country = COLOMBIA;
-    fechaFestivo.year = new Date(fechaAValidar).getFullYear();
-    fechaFestivo.day = new Date(fechaAValidar).getDate();
-    fechaFestivo.month = new Date(fechaAValidar).getMonth() + UNO;
-
-    respuesta = await this.irConsultarFestivo(fechaFestivo);
-
-    if(respuesta.length > 0){
-      return true;
-    }
-
-     return false;
   }
 
   private validarEsDiaSiguiente(fechaAValidar: string){
@@ -145,31 +117,6 @@ export class Pedido {
         'La Reunion esta vacia, es requerido'
       );
     }
-  }
-
-  private validarCobroDoble(valorTotal: number,producto: Producto, reunion: Reunion, fehaPedido: string): number {
-    let esCobroDoble = false;
-    const DOBLE = 2;
-    let respuestaFestivo = this.validarEsFestivo(fehaPedido);
-
-    respuestaFestivo
-    .then((respuesta: boolean) => {esCobroDoble = respuesta;})
-    .catch(() => {esCobroDoble = false;});
-
-    if(esCobroDoble){
-      return (producto.precio + reunion.precio) * DOBLE;
-    }
-    
-    return valorTotal;
-  }
-
-  private async irConsultarFestivo(fechaFestivo: DiaFestivoDto): Promise<string[]>{
-    let httpService = new HttpService;
-    const daoDiaFestivo = new DaoDiaFestivoApi(httpService);
-
-    return daoDiaFestivo.consultarApiFestivo(fechaFestivo)
-    .then((fechaResuelta: string[]) => fechaResuelta)
-    .catch(() => []); 
   }
 
   get usuario(): Usuario {

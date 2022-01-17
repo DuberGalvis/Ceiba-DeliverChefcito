@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1642183126850" clover="3.2.0">
-  <project timestamp="1642183126850" name="All files">
-    <metrics statements="457" coveredstatements="452" conditionals="46" coveredconditionals="44" methods="116" coveredmethods="114" elements="619" coveredelements="610" complexity="0" loc="457" ncloc="457" packages="41" files="60" classes="60"/>
+<coverage generated="1642392929072" clover="3.2.0">
+  <project timestamp="1642392929073" name="All files">
+    <metrics statements="443" coveredstatements="438" conditionals="44" coveredconditionals="42" methods="110" coveredmethods="109" elements="597" coveredelements="589" complexity="0" loc="443" ncloc="443" packages="41" files="60" classes="60"/>
     <package name="src.aplicacion.pedido.cambio">
       <metrics statements="28" coveredstatements="28" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
       <file name="cambiar-pedido.comando.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\pedido\cambio\cambiar-pedido.comando.ts">
@@ -46,7 +46,7 @@
       </file>
     </package>
     <package name="src.aplicacion.pedido.comando">
-      <metrics statements="19" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <metrics statements="33" coveredstatements="30" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="registrar-pedido.comando.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\pedido\comando\registrar-pedido.comando.ts">
         <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
@@ -64,13 +64,27 @@
         <line num="36" count="1" type="stmt"/>
       </file>
       <file name="registrar-pedido.manejador.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\aplicacion\pedido\comando\registrar-pedido.manejador.ts">
-        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <metrics statements="20" coveredstatements="17" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="33" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.aplicacion.pedido.consulta">
@@ -301,9 +315,9 @@
       </file>
     </package>
     <package name="src.dominio.pedido.modelo">
-      <metrics statements="93" coveredstatements="90" conditionals="22" coveredconditionals="20" methods="23" coveredmethods="22"/>
+      <metrics statements="65" coveredstatements="65" conditionals="18" coveredconditionals="18" methods="17" coveredmethods="17"/>
       <file name="pedido.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\dominio\pedido\modelo\pedido.ts">
-        <metrics statements="93" coveredstatements="90" conditionals="22" coveredconditionals="20" methods="23" coveredmethods="22"/>
+        <metrics statements="65" coveredstatements="65" conditionals="18" coveredconditionals="18" methods="17" coveredmethods="17"/>
         <line num="1" count="3" type="stmt"/>
         <line num="2" count="3" type="stmt"/>
         <line num="3" count="3" type="stmt"/>
@@ -312,91 +326,63 @@
         <line num="6" count="3" type="stmt"/>
         <line num="10" count="3" type="stmt"/>
         <line num="12" count="3" type="stmt"/>
-        <line num="13" count="3" type="stmt"/>
-        <line num="15" count="3" type="stmt"/>
-        <line num="17" count="3" type="stmt"/>
-        <line num="18" count="13" type="stmt"/>
-        <line num="19" count="13" type="stmt"/>
-        <line num="20" count="13" type="stmt"/>
-        <line num="21" count="13" type="stmt"/>
-        <line num="22" count="13" type="stmt"/>
-        <line num="23" count="13" type="stmt"/>
-        <line num="24" count="13" type="stmt"/>
-        <line num="25" count="13" type="stmt"/>
-        <line num="26" count="13" type="stmt"/>
-        <line num="29" count="13" type="stmt"/>
-        <line num="30" count="13" type="stmt"/>
-        <line num="31" count="12" type="stmt"/>
-        <line num="32" count="11" type="stmt"/>
-        <line num="33" count="10" type="stmt"/>
-        <line num="34" count="9" type="stmt"/>
-        <line num="35" count="8" type="stmt"/>
-        <line num="36" count="7" type="stmt"/>
-        <line num="37" count="5" type="stmt"/>
-        <line num="38" count="4" type="stmt"/>
-        <line num="39" count="3" type="stmt"/>
-        <line num="40" count="3" type="stmt"/>
-        <line num="41" count="3" type="stmt"/>
-        <line num="42" count="3" type="stmt"/>
-        <line num="43" count="3" type="stmt"/>
-        <line num="44" count="3" type="stmt"/>
-        <line num="45" count="3" type="stmt"/>
-        <line num="46" count="3" type="stmt"/>
-        <line num="51" count="18" type="cond" truecount="2" falsecount="0"/>
-        <line num="52" count="2" type="stmt"/>
-        <line num="60" count="16" type="cond" truecount="2" falsecount="0"/>
-        <line num="61" count="2" type="stmt"/>
-        <line num="68" count="13" type="stmt"/>
-        <line num="69" count="13" type="stmt"/>
-        <line num="70" count="13" type="stmt"/>
-        <line num="71" count="13" type="stmt"/>
-        <line num="78" count="13" type="stmt"/>
-        <line num="79" count="13" type="stmt"/>
-        <line num="80" count="13" type="stmt"/>
-        <line num="81" count="13" type="stmt"/>
-        <line num="83" count="13" type="stmt"/>
-        <line num="85" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="86" count="0" type="stmt"/>
-        <line num="89" count="1" type="stmt"/>
-        <line num="93" count="5" type="stmt"/>
-        <line num="94" count="5" type="stmt"/>
-        <line num="96" count="5" type="cond" truecount="2" falsecount="0"/>
-        <line num="97" count="1" type="stmt"/>
-        <line num="104" count="4" type="stmt"/>
-        <line num="106" count="4" type="stmt"/>
-        <line num="108" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="109" count="1" type="stmt"/>
-        <line num="116" count="7" type="stmt"/>
-        <line num="117" count="7" type="stmt"/>
-        <line num="119" count="7" type="stmt"/>
-        <line num="121" count="6" type="cond" truecount="4" falsecount="0"/>
-        <line num="122" count="1" type="stmt"/>
-        <line num="129" count="13" type="cond" truecount="2" falsecount="0"/>
-        <line num="130" count="1" type="stmt"/>
-        <line num="137" count="12" type="cond" truecount="2" falsecount="0"/>
-        <line num="138" count="1" type="stmt"/>
-        <line num="145" count="11" type="cond" truecount="2" falsecount="0"/>
-        <line num="146" count="1" type="stmt"/>
-        <line num="153" count="3" type="stmt"/>
-        <line num="155" count="3" type="stmt"/>
-        <line num="157" count="1" type="stmt"/>
-        <line num="158" count="1" type="stmt"/>
-        <line num="160" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="161" count="0" type="stmt"/>
-        <line num="164" count="3" type="stmt"/>
-        <line num="168" count="13" type="stmt"/>
-        <line num="169" count="13" type="stmt"/>
-        <line num="171" count="13" type="stmt"/>
-        <line num="172" count="0" type="stmt"/>
-        <line num="173" count="1" type="stmt"/>
-        <line num="177" count="1" type="stmt"/>
-        <line num="181" count="1" type="stmt"/>
-        <line num="185" count="1" type="stmt"/>
-        <line num="189" count="1" type="stmt"/>
-        <line num="193" count="1" type="stmt"/>
-        <line num="197" count="1" type="stmt"/>
-        <line num="201" count="1" type="stmt"/>
-        <line num="205" count="1" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="15" count="12" type="stmt"/>
+        <line num="16" count="12" type="stmt"/>
+        <line num="17" count="12" type="stmt"/>
+        <line num="18" count="12" type="stmt"/>
+        <line num="19" count="12" type="stmt"/>
+        <line num="20" count="12" type="stmt"/>
+        <line num="21" count="12" type="stmt"/>
+        <line num="22" count="12" type="stmt"/>
+        <line num="25" count="12" type="stmt"/>
+        <line num="26" count="11" type="stmt"/>
+        <line num="27" count="10" type="stmt"/>
+        <line num="28" count="9" type="stmt"/>
+        <line num="29" count="8" type="stmt"/>
+        <line num="30" count="7" type="stmt"/>
+        <line num="31" count="6" type="stmt"/>
+        <line num="32" count="4" type="stmt"/>
+        <line num="33" count="3" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="46" count="16" type="cond" truecount="2" falsecount="0"/>
+        <line num="47" count="2" type="stmt"/>
+        <line num="55" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="56" count="2" type="stmt"/>
+        <line num="63" count="4" type="stmt"/>
+        <line num="64" count="4" type="stmt"/>
+        <line num="66" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="67" count="1" type="stmt"/>
+        <line num="74" count="3" type="stmt"/>
+        <line num="76" count="3" type="stmt"/>
+        <line num="78" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="79" count="1" type="stmt"/>
+        <line num="86" count="6" type="stmt"/>
+        <line num="87" count="6" type="stmt"/>
+        <line num="89" count="6" type="stmt"/>
+        <line num="91" count="5" type="cond" truecount="4" falsecount="0"/>
+        <line num="92" count="1" type="stmt"/>
+        <line num="99" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="100" count="1" type="stmt"/>
+        <line num="107" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="108" count="1" type="stmt"/>
+        <line num="115" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="116" count="1" type="stmt"/>
+        <line num="123" count="1" type="stmt"/>
+        <line num="127" count="1" type="stmt"/>
+        <line num="131" count="1" type="stmt"/>
+        <line num="135" count="1" type="stmt"/>
+        <line num="139" count="1" type="stmt"/>
+        <line num="143" count="1" type="stmt"/>
+        <line num="147" count="1" type="stmt"/>
+        <line num="151" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.dominio.pedido.puerto.dao">
@@ -419,7 +405,7 @@
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="4" count="2" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.dominio.producto.modelo">
@@ -590,10 +576,10 @@
       <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="dao-dia-festivo.api.ts" path="C:\Users\duber.galvis\Documents\Ceiba-DeliverChefcito\node-nestjs-arquitectura-hexagonal\src\infraestructura\configuracion\api\adaptador\dao-dia-festivo.api.ts">
         <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="8" count="13" type="stmt"/>
-        <line num="11" count="13" type="stmt"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
       </file>
     </package>

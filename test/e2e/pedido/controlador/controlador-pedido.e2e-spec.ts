@@ -90,8 +90,8 @@ describe('Pruebas al controlador de pedidos', () => {
       .expect(pedido);
   });
 
-  it('debería registar un pedido', async () => {
-    const cambiarPedido: ComandoRegistrarPedido = {
+  it('debería generar error a la creacion del pedido por error del API', async () => {
+    const crearPedido: ComandoRegistrarPedido = {
       usuario: new Usuario('juan', '1234', new Date().toISOString()),
       producto: new Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
       reunion: new Reunion('TIPO_GRANDE', 50000),
@@ -102,8 +102,8 @@ describe('Pruebas al controlador de pedidos', () => {
     };
 
     return request(app.getHttpServer())
-      .post('/pedidos').send(cambiarPedido)
-      .expect(HttpStatus.CREATED);
+      .post('/pedidos').send(crearPedido)
+      .expect(HttpStatus.INTERNAL_SERVER_ERROR);
   });
 
   it('debería cambiar un pedido', async () => {
