@@ -1,8 +1,8 @@
-import { HttpService, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { DiaFestivoDto } from 'src/aplicacion/api/consulta/dto/dia-festivo.dto';
 import { Pedido } from 'src/dominio/pedido/modelo/pedido';
 import { ServicioRegistrarPedido } from 'src/dominio/pedido/servicio/servicio-registrar-pedido';
-import { DaoDiaFestivoApi } from 'src/infraestructura/configuracion/api/adaptador/dao-dia-festivo.api';
+import { DaoDiaFestivoRemoto } from 'src/infraestructura/configuracion/api/adaptador/dao-dia-festivo.api';
 import { ComandoRegistrarPedido } from './registrar-pedido.comando';
 
 
@@ -11,11 +11,10 @@ export class ManejadorRegistrarPedido {
     constructor(private _servicioRegistrarPedido: ServicioRegistrarPedido){}
 
     async ejecutar(comandoRegistrarPedido: ComandoRegistrarPedido){
-        let httpService = new HttpService;
-        const daoDiaFestivo = new DaoDiaFestivoApi(httpService);
+        const daoDiaFestivo = new DaoDiaFestivoRemoto;
         const COLOMBIA = 'CO';
-        const UNO = 1;
-        const DOBLE = 2;
+        const UN_MES = 1;
+        const COBRO_DOBLE = 2;
         const fechaFestivo: DiaFestivoDto = {
         country: '',
         year: 0,
@@ -26,12 +25,12 @@ export class ManejadorRegistrarPedido {
         fechaFestivo.country = COLOMBIA;
         fechaFestivo.year = new Date(comandoRegistrarPedido.fechaRealizacion).getFullYear();
         fechaFestivo.day = new Date(comandoRegistrarPedido.fechaRealizacion).getDate();
-        fechaFestivo.month = new Date(comandoRegistrarPedido.fechaRealizacion).getMonth() + UNO;
+        fechaFestivo.month = new Date(comandoRegistrarPedido.fechaRealizacion).getMonth() + UN_MES;
 
-        const respuesta = await daoDiaFestivo.consultarApiFestivo(fechaFestivo);
-
-        if(respuesta.length > 0){
-            comandoRegistrarPedido.valorTotal *= DOBLE;
+        const esFestivo = await daoDiaFestivo.consultarApiFestivo(fechaFestivo);
+        console.log(esFestivo);
+        if(esFestivo){
+            comandoRegistrarPedido.valorTotal *= COBRO_DOBLE;
         }
         await this._servicioRegistrarPedido.ejecutar(
             new Pedido(

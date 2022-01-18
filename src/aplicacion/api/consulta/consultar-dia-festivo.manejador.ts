@@ -6,7 +6,7 @@ import { DiaFestivoDto } from './dto/dia-festivo.dto';
 export class ManejadorConsultarDiaFestivo {
     constructor(private _daoDiaFestivo: DaoDiaFestivo) {}
 
-    async ejecutar(esFestivo: DiaFestivoDto): Promise<Array<string>>{
+    async ejecutar(esFestivo: DiaFestivoDto): Promise<boolean>{
         return this._daoDiaFestivo.consultarApiFestivo(esFestivo);
     }
 }

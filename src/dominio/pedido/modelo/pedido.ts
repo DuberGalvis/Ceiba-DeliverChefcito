@@ -83,14 +83,14 @@ export class Pedido {
   }
 
   private validarHoraDeServicio(horasDeServicio: number) {
-    const OCHO = 8;
-    const CUATRO = 4;
+    const HORAMAXIMA = 8;
+    const HORAMINIMA = 4;
 
     this.validarExisteValor(horasDeServicio, 'Horas de Servicio');
 
-    if (horasDeServicio > OCHO || horasDeServicio < CUATRO) {
+    if (horasDeServicio > HORAMAXIMA || horasDeServicio < HORAMINIMA) {
       throw new ErrorHoraDeServicio(
-        `No se puede sobrepasar las ${OCHO} horas o ser menos a ${CUATRO} horas`,
+        `No se puede sobrepasar las ${HORAMAXIMA} horas o ser menos a ${HORAMINIMA} horas`,
       );
     }
   }
