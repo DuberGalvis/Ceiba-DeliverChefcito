@@ -28,7 +28,7 @@ export class ManejadorRegistrarPedido {
         fechaFestivo.month = new Date(comandoRegistrarPedido.fechaRealizacion).getMonth() + UN_MES;
 
         const esFestivo = await daoDiaFestivo.consultarApiFestivo(fechaFestivo);
-        console.log(esFestivo);
+
         if(esFestivo){
             comandoRegistrarPedido.valorTotal *= COBRO_DOBLE;
         }
