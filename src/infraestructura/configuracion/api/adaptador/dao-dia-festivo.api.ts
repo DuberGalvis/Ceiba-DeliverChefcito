@@ -15,7 +15,7 @@ export class DaoDiaFestivoRemoto implements DaoDiaFestivo {
             .toPromise();
         
         respuesta = Array.from(esDiaFestivo.data.response.holidays);
-        console.log(respuesta);
+
         if(respuesta.length > 0){
             return true;
         }
