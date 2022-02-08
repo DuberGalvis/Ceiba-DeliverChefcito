@@ -93,7 +93,7 @@ describe('Pruebas al controlador de pedidos', () => {
   it('debería generar error a la creacion del pedido por error del API', async () => {
     const crearPedido: ComandoRegistrarPedido = {
       usuario: new Usuario('juan', '1234', new Date().toISOString()),
-      producto: new Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
+      producto: new Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.', 'imagen.png'),
       reunion: new Reunion('TIPO_GRANDE', 50000),
       fechaRealizacion: fechaPedido.toISOString(),
       direccion: 'Carrera 80 # 70',
@@ -110,7 +110,7 @@ describe('Pruebas al controlador de pedidos', () => {
     const cambiarPedido: ComandoCambiarPedido = {
       id: 23,
       usuario: new Usuario('juan', '1234', new Date().toISOString()),
-      producto: new Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
+      producto: new Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.', 'imagen.png'),
       reunion: new Reunion('TIPO_GRANDE', 50000),
       fechaRealizacion: fechaPedido.toISOString(),
       direccion: 'Carrera 80 # 70',
