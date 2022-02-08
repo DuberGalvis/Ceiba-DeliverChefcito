@@ -22,6 +22,7 @@ export class RepositorioProductoPostgres  implements RepositorioProducto {
         entidad.nombre = producto.nombre;
         entidad.precio = producto.precio;
         entidad.detalle = producto.detalle;
+        entidad.nombreImagen = producto.nombreImagen;
         await this.repositorio.save(entidad);
     }
 }

@@ -13,14 +13,14 @@ export class DaoProductoPostgres implements DaoProducto {
 
     async listar(): Promise<ProductoDto[]> {
         return this.entityManager.query(
-          'SELECT p.nombre, p.precio, p.detalle FROM PRODUCTO p',
+          'SELECT p.nombre, p.precio, p.detalle, p.nombre_imagen AS "nombreImagen" FROM PRODUCTO p',
         );
     }
 
     async consultar(nombre: string): Promise<ProductoDto> {
         let respuesta: Array<ProductoDto>;
         respuesta = await this.entityManager.query(
-        'SELECT p.nombre, p.precio, p.detalle FROM PRODUCTO p WHERE p.nombre = $1',
+        'SELECT p.nombre, p.precio, p.detalle, p.nombre_imagen AS "nombreImagen" FROM PRODUCTO p WHERE p.nombre = $1',
         [nombre],
         );
 

@@ -22,13 +22,13 @@ describe('ServicioRegistrarProducto', () => {
 
     await expect(
       servicioRegistrarProducto.ejecutar(
-        new Producto('Alitas Picantes', 40000, 'Bañadas en salsa tabasco con finas hiervas'),
+        new Producto('Alitas Picantes', 40000, 'Bañadas en salsa tabasco con finas hiervas', '../../imagenes'),
       ),
     ).rejects.toThrow('El nombre del producto Alitas Picantes ya existe');
   });
 
   it('si el nombre no existe guarda el producto al repositorio', async () => {
-    const producto = new Producto('Alitas Picantes', 40000, 'Bañadas en salsa tabasco con finas hiervas');
+    const producto = new Producto('Alitas Picantes', 40000, 'Bañadas en salsa tabasco con finas hiervas', '../../imagenes');
     repositorioProductoStub.existeNombreProducto.returns(Promise.resolve(false));
 
     await servicioRegistrarProducto.ejecutar(producto);

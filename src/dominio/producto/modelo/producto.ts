@@ -7,14 +7,17 @@ export class Producto {
   readonly #nombre: string;
   readonly #precio: number;
   readonly #detalle: string;
+  readonly #nombreImagen: string;
 
-  constructor(nombre: string, precio: number, detalle: string) {
+  constructor(nombre: string, precio: number, detalle: string, nombreImagen: string) {
     this.validarTamanoDetalle(detalle);
     this.validarNombre(nombre);
     this.validarPrecio(precio);
+    this.validarNombreImagen(nombreImagen);
     this.#nombre = nombre;
     this.#precio = precio;
     this.#detalle = detalle;
+    this.#nombreImagen = nombreImagen;
   }
 
   private validarTamanoDetalle(detalle: string) {
@@ -41,6 +44,14 @@ export class Producto {
     }
   }
 
+  private validarNombreImagen(nombreImagen: string) {
+    if(!nombreImagen){
+      throw new ErrorValorRequerido(
+        'El nombre de la imagen esta vacio, es requerido'
+      );
+    }
+  }
+
   get nombre(): string {
     return this.#nombre;
   }
@@ -51,5 +62,9 @@ export class Producto {
 
   get detalle(): string {
     return this.#detalle;
+  }
+
+  get nombreImagen(): string {
+    return this.#nombreImagen;
   }
 }

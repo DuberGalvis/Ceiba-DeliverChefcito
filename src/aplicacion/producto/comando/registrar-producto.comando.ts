@@ -13,4 +13,8 @@ export class ComandoRegistrarProducto {
   @IsString()
   @ApiProperty({ maxLength: 100, example: 'contiene chile habanero...' })
   public detalle: string;
+
+  @IsString()
+  @ApiProperty({ example: '../../imagenes' })
+  public nombreImagen: string;
 }

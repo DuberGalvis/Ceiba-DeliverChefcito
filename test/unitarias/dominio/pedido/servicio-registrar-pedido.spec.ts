@@ -28,7 +28,7 @@ describe('ServicioRegistrarPedido', () => {
     it('si el pedido es valido guarda al repositorio', async () => {
         const pedido = new Pedido(
             new Usuario('juan', '1234', new Date().toISOString()),
-            new Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
+            new Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.', '../../imagenes'),
             new Reunion('TIPO_GRANDE', 50000), 
             fechaPedido.toISOString(),
             'Carrera 80 # 70',

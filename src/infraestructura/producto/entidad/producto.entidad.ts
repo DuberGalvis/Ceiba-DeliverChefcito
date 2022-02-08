@@ -14,4 +14,7 @@ export class ProductoEntidad{
 
     @Column()
     detalle: string;
+
+    @Column({name: 'nombre_imagen'})
+    nombreImagen: string;
 }

@@ -33,7 +33,7 @@ describe('Pedido', () => {
     const DIA = fechaPedido.getDay();
     fechaPedido.setDate(fechaPedido.getDate() + (DIA8 - DIA));
     return expect(async () => new _Pedido( new _Usuario('juan', '1234', new Date().toISOString()),
-      new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
+      new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.', '../../imagenes'),
       new _Reunion('TIPO_GRANDE', 50000), 
       fechaPedido.toISOString(),
       'Carrera 80 # 70',
@@ -45,7 +45,7 @@ describe('Pedido', () => {
 
   it('Pedido con horario que pasa el maximo de horas debería retornar error', () => {
     return expect(async () => new _Pedido( new _Usuario('juan', '1234', new Date().toISOString()),
-      new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
+      new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.', '../../imagenes'),
       new _Reunion('TIPO_GRANDE', 50000), 
       fechaPedido.toISOString(),
       'Carrera 80 # 70',
@@ -57,7 +57,7 @@ describe('Pedido', () => {
 
   it('Pedido sin usuario deberia retornar error', () => {
     return expect(async () => new _Pedido( undefined,
-      new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
+      new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.', '../../imagenes'),
       new _Reunion('TIPO_GRANDE', 50000), 
       fechaPedido.toISOString(),
       'Carrera 80 # 70',
@@ -81,7 +81,7 @@ describe('Pedido', () => {
 
   it('Pedido sin reunion deberia retornar error', () => {
     return expect(async () => new _Pedido( new _Usuario('juan', '1234', new Date().toISOString()),
-      new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
+      new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.', '../../imagenes'),
       undefined, 
       fechaPedido.toISOString(),
       'Carrera 80 # 70',
@@ -93,7 +93,7 @@ describe('Pedido', () => {
 
   it('Pedido sin direccion deberia retornar error', () => {
     return expect(async () => new _Pedido( new _Usuario('juan', '1234', new Date().toISOString()),
-      new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
+      new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.', '../../imagenes'),
       new _Reunion('TIPO_GRANDE', 50000), 
       fechaPedido.toISOString(),
       undefined,
@@ -105,7 +105,7 @@ describe('Pedido', () => {
 
   it('Pedido sin valor total deberia retornar error', () => {
     return expect(async () => new _Pedido( new _Usuario('juan', '1234', new Date().toISOString()),
-      new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
+      new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.', '../../imagenes'),
       new _Reunion('TIPO_GRANDE', 50000), 
       fechaPedido.toISOString(),
       'Carrera 80 # 70',
@@ -117,7 +117,7 @@ describe('Pedido', () => {
 
   it('Pedido sin horas de servicio deberia retornar error', () => {
     return expect(async () => new _Pedido( new _Usuario('juan', '1234', new Date().toISOString()),
-      new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
+      new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.', '../../imagenes'),
       new _Reunion('TIPO_GRANDE', 50000), 
       fechaPedido.toISOString(),
       'Carrera 80 # 70',
@@ -129,7 +129,7 @@ describe('Pedido', () => {
 
   it('Pedido sin fecha de realizacion deberia retornar error', () => {
     return expect(async () => new _Pedido( new _Usuario('juan', '1234', new Date().toISOString()),
-      new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
+      new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.', '../../imagenes'),
       new _Reunion('TIPO_GRANDE', 50000),
       undefined, 
       'Carrera 80 # 70',
@@ -141,7 +141,7 @@ describe('Pedido', () => {
 
   it('Pedido con fecha actual o menor deberia retornar error', () => {
     return expect(async () => new _Pedido( new _Usuario('juan', '1234', new Date().toISOString()),
-      new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
+      new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.', '../../imagenes'),
       new _Reunion('TIPO_GRANDE', 50000),
       new Date().toISOString(), 
       'Carrera 80 # 70',
@@ -153,7 +153,7 @@ describe('Pedido', () => {
 
   it('producto con todas las validaciones ok debería crear bien', () => {
     const pedido = new _Pedido( new _Usuario('juan', '1234', new Date().toISOString()),
-    new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'),
+    new _Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.', '../../imagenes'),
     new _Reunion('TIPO_GRANDE', 50000), 
     fechaPedido.toISOString(),
     'Carrera 80 # 70',
@@ -161,7 +161,7 @@ describe('Pedido', () => {
     4);
 
     expect(pedido.usuario).toEqual(new Usuario('juan', '1234', new Date().toISOString()));
-    expect(pedido.producto).toEqual(new Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.'));
+    expect(pedido.producto).toEqual(new Producto('Alitas Picantes', 40000, 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.', '../../imagenes'));
     expect(pedido.reunion).toEqual(new Reunion( 'TIPO_GRANDE', 50000));
     expect(pedido.fechaRealizacion.toISOString()).toEqual(fechaPedido.toISOString());
     expect(pedido.direccion).toEqual('Carrera 80 # 70');

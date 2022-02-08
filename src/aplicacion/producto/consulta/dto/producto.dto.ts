@@ -10,4 +10,7 @@ export class ProductoDto {
 
   @ApiProperty({ maxLength: 100, example: 'contiene chile habanero...' })
   detalle: string;
+
+  @ApiProperty({ example: '../../imagenes' })
+  nombreImagen: string;
 }

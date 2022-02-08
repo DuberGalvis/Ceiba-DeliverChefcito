@@ -13,6 +13,7 @@ export class ManejadorRegistrarProducto {
         comandoRegistrarProducto.nombre,
         comandoRegistrarProducto.precio,
         comandoRegistrarProducto.detalle,
+        comandoRegistrarProducto.nombreImagen,
       ),
     );
   }

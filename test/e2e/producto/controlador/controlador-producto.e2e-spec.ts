@@ -66,7 +66,7 @@ describe('Pruebas al controlador de productos', () => {
 
   it('debería consultar el producto registrado', () => {
 
-    const producto: any = [{ nombre: 'Alitas Picantes', precio: 40000, detalle: 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.' }];
+    const producto: any = [{ nombre: 'Alitas Picantes', precio: 40000, detalle: 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.', nombreImagen: '../../imagenes' }];
     daoProducto.consultar.returns(Promise.resolve(producto));
 
     return request(app.getHttpServer())
@@ -77,8 +77,8 @@ describe('Pruebas al controlador de productos', () => {
 
   it('debería listar los productos registrados', () => {
 
-    const productos: any = [{ nombre: 'Alitas Picantes', precio: 40000, detalle: 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.' },
-    { nombre: 'Bandeja Paisa', precio: 60000, detalle: 'Comida tipica de antioquia con flijoles, variadas carnes.' }];
+    const productos: any = [{ nombre: 'Alitas Picantes', precio: 40000, detalle: 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.', nombreImagen: '../../imagenes' },
+    { nombre: 'Bandeja Paisa', precio: 60000, detalle: 'Comida tipica de antioquia con flijoles, variadas carnes.', nombreImagen: '../../imagenes' }];
     daoProducto.listar.returns(Promise.resolve(productos));
 
     return request(app.getHttpServer())
@@ -92,6 +92,7 @@ describe('Pruebas al controlador de productos', () => {
       nombre: 'Alitas Picantes',
       precio: 40000,
       detalle: 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno. Son un producto adobado de sabor pronunciado.',
+      nombreImagen: '../../imagenes',
     };
     const mensaje = 'El tamaño máximo del detalle debe ser 100';
 
@@ -107,6 +108,7 @@ describe('Pruebas al controlador de productos', () => {
       nombre: 'Alitas Picantes',
       precio: 40000,
       detalle: 'Las Alitas picantes son prácticas y fáciles de preparar, asadas o al horno.',
+      nombreImagen: '../../imagenes',
     };
     const mensaje = `El nombre del producto ${producto.nombre} ya existe`;
     repositorioProducto.existeNombreProducto.returns(Promise.resolve(true));
